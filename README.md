@@ -1,12 +1,12 @@
 ## Infra-xodivorce-in: powered by @xodivorce
 
 ### 👀 Preview
-<img src="./images/infra-xodivorce-in-preview.png" alt="infra-xodivorce-in-preview">
+<img src="./src/assets/images/preview/infra-xodivorce-in-preview.png" alt="infra-xodivorce-in-preview">
 
 #### Revolutionizing adult content streaming with a cutting-edge UI, empowering creators and delivering viewers an unmatched video experience.
 
 [![status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat)](https://github.com/xodivorce/infra-xodivorce-in/)
-[![version](https://img.shields.io/badge/version-v1.5.5-yellow.svg?style=flat)](https://github.com/xodivorce/infra-xodivorce-in/)
+[![version](https://img.shields.io/badge/version-v1.0.1-yellow.svg?style=flat)](https://github.com/xodivorce/infra-xodivorce-in/)
 [![PRs](https://img.shields.io/badge/PRs-welcome-blue.svg?style=flat)](https://github.com/xodivorce/infra-xodivorce-in/)
 
 > **🥰 Like this project? Please consider giving it a Star (🌟) on GitHub to show us your appreciation. Thank you!**
