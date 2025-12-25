@@ -1,0 +1,21 @@
+/* Global Body Styles */
+
+@import "tailwindcss";
+
+@theme {
+  --font-youtube: 'youtube-sans', sans-serif;
+}
+
+@layer base {
+  @font-face {
+    font-family: "youtube-sans";
+    src: url('../assets/fonts/youtube-sans-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    font-family: 'Lexend Deca', sans-serif;
+    background-color: #000;
+  }
+}
