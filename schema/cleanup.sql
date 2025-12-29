@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS
   `password_resets`,
   `contributors`,
   `users`,
-  `languages`;
+  `languages`,
+  `reports`;
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 29, 2025 at 07:20 AM
+-- Generation Time: Dec 29, 2025 at 09:47 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,9 +40,9 @@ CREATE TABLE `contributors` (
 --
 
 INSERT INTO `contributors` (`id`, `language`, `img`, `points`, `added_at`) VALUES
-(1, 'EN', './assets/images/contributors/xodivorce.webp', 3, '2025-09-08 06:52:35'),
-(2, 'HI', './assets/images/contributors/souvik.webp', 2, '2025-09-08 06:52:35'),
-(3, 'BN', './assets/images/contributors/tripan.webp', 1, '2025-09-08 06:52:35');
+(1, 'EN', './../assets/images/contributors/xodivorce.webp', 3, '2025-09-08 06:52:35'),
+(2, 'HI', './../assets/images/contributors/souvik.webp', 2, '2025-09-08 06:52:35'),
+(3, 'BN', './../assets/images/contributors/tripan.webp', 1, '2025-09-08 06:52:35');
 
 -- --------------------------------------------------------
 
@@ -146,6 +146,42 @@ INSERT INTO `password_resets` (`id`, `user_id`, `email`, `token_hash`, `token_sa
 (85, 63, 'prasidmandal79@gmail.com', '13bba949aa87cdce6d004a83a4e12d8fad3908493c676f9938f92fe18d495cb0', 'cb7282236e04acef46f4f94014b42894', '2025-12-29 07:10:57', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 1, '2025-12-29 11:37:57'),
 (86, 63, 'prasidmandal79@gmail.com', '5ffb85b8ad6b37321a5fa80c3e31f0c2d13865493b66e819a231409f76497706', 'c225eb18cd7a316efac7db40bfcc97c5', '2025-12-29 07:11:35', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-29 11:38:35'),
 (87, 63, 'prasidmandal79@gmail.com', 'cf0d32fb8d22c62dc077ba82960ec696c5c7b2cc2b37b3d7c7187219f9820b57', 'da591eaf4b7de7a6e065ce677df6ae0b', '2025-12-29 07:11:44', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-29 11:38:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reports`
+--
+
+CREATE TABLE `reports` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `category` varchar(100) NOT NULL,
+  `priority` enum('Low','Medium','High') NOT NULL DEFAULT 'Low',
+  `status` enum('Open','In Progress','Resolved') NOT NULL DEFAULT 'Open',
+  `location` varchar(255) NOT NULL,
+  `image_path` varchar(255) DEFAULT NULL,
+  `map_link` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reports`
+--
+
+INSERT INTO `reports` (`id`, `user_id`, `title`, `category`, `priority`, `status`, `location`, `image_path`, `map_link`, `created_at`, `updated_at`) VALUES
+(4, 65, 'Wifi Outage at 3rd floor', 'WiFi &amp; Network Issue', 'Low', 'In Progress', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767009661.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 12:01:01', '2025-12-29 14:14:51'),
+(5, 65, 'hole in the main road', 'Road &amp; Pathway Damage', 'High', 'Open', 'Kolkata, India', './assets/images/uploads/reports/report_65_1767009895.png', 'Kolkata, India', '2025-12-29 12:04:55', '2025-12-29 14:27:21'),
+(6, 65, 'Other', 'Other', 'Medium', 'Resolved', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767017837.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:17:17', '2025-12-29 14:17:35'),
+(7, 65, 'AC not working', 'HVAC (AC/Heating)', 'High', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767018466.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:27:46', '2025-12-29 14:27:46'),
+(8, 65, 'harashments', 'Security &amp; Safety', 'High', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767018694.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:31:34', '2025-12-29 14:31:34'),
+(9, 65, 'junk here', 'Cleaning &amp; Janitorial', 'Low', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767018712.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:31:52', '2025-12-29 14:31:52'),
+(10, 65, 'broken bench', 'Furniture &amp; Fixtures', 'Medium', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767018742.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:32:22', '2025-12-29 14:32:22'),
+(11, 66, 'high polution', 'Cleaning &amp; Janitorial', 'Medium', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_66_1767022844.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 15:40:44', '2025-12-29 15:40:44'),
+(12, 65, 'pothhole in the play ground', 'Road &amp; Pathway Damage', 'Medium', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767026447.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 16:40:47', '2025-12-29 16:40:47'),
+(13, 65, 'PornHub not workingg..', 'WiFi &amp; Network Issue', 'High', 'Open', 'https://www.google.com/maps?q=22.67843437253911,88.83882139925646', './assets/images/uploads/reports/report_65_1767027847.png', 'https://www.google.com/maps?q=22.67843437253911,88.83882139925646', '2025-12-29 17:04:07', '2025-12-29 17:04:07');
 
 -- --------------------------------------------------------
 
@@ -3313,7 +3349,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `age`, `gender`, `password_hash`, `is_admin`, `created_at`) VALUES
 (63, '23/v/kpc-cst/36', 'prasidmandal79@gmail.com', 19, 'male', '$2y$10$VpgmeJOMAK72yYHNM.yXQ.F9ZnsQf8v9INGovs7fXjr9wh.euMGki', 1, '2025-12-28 20:20:52'),
-(65, '23/v/kpc-cst/35', 'dipalimandal257@gmail.com', 36, 'female', '$2y$10$CW4itEj.dMuFszYJ/jmAnu49qGr2rZUENEkLnWBzRk0CY9.dJSxNu', 0, '2025-12-29 06:18:30');
+(65, '23/v/kpc-cst/35', 'dipalimandal257@gmail.com', 36, 'female', '$2y$10$CW4itEj.dMuFszYJ/jmAnu49qGr2rZUENEkLnWBzRk0CY9.dJSxNu', 0, '2025-12-29 06:18:30'),
+(66, '23/v/kpc-cst/37', 'chutkasekari@gmail.com', 19, 'male', '$2y$10$xmecyRB/A5pT6K8wSMPTv.6frNJ83cKKXBRJaVUaEg5zHpxauh1Nm', 0, '2025-12-29 06:59:50'),
+(67, '23/v/kpc-cst/38', 'chutkassekari@gmail.com', 19, 'male', '$2y$10$81WW9s6M680qXf66qo.BrOORqNHUX2GOXdLtK1S2RBpn8qhHu/t1y', 0, '2025-12-29 18:53:48');
 
 --
 -- Indexes for dumped tables
@@ -3343,6 +3381,14 @@ ALTER TABLE `password_resets`
   ADD KEY `idx_user_id` (`user_id`),
   ADD KEY `idx_expires_at` (`expires_at`),
   ADD KEY `idx_used` (`used`);
+
+--
+-- Indexes for table `reports`
+--
+ALTER TABLE `reports`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_user` (`user_id`),
+  ADD KEY `idx_status` (`status`);
 
 --
 -- Indexes for table `translations`
@@ -3382,6 +3428,12 @@ ALTER TABLE `password_resets`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
+-- AUTO_INCREMENT for table `reports`
+--
+ALTER TABLE `reports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `translations`
 --
 ALTER TABLE `translations`
@@ -3402,6 +3454,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `password_resets`
   ADD CONSTRAINT `fk_password_resets_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `reports`
+--
+ALTER TABLE `reports`
+  ADD CONSTRAINT `fk_report_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `translations`

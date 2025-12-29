@@ -3,7 +3,7 @@ ob_start();
 session_start();
 
 // Initialize the application
-include './core/init.php';
+include './../core/init.php';
 ?>
 
 <!DOCTYPE html>

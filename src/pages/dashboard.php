@@ -1,6 +1,7 @@
 <?php
 // Initialize the application
 include './core/init.php';
+include './core/connection.php';
 include './core/router.php';
 
 // Suppress all PHP errors in production environment
