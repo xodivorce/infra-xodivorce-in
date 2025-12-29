@@ -1,302 +1,71 @@
-<div
-  class="sidebar group fixed top-[3.6rem] left-0 z-[9999] h-[calc(100vh-3.6rem)] w-[14.375rem] overflow-y-auto overflow-x-hidden bg-black pb-[25%] pr-[0.9375rem] pl-[0.9375rem] pt-[0.3125rem] group-[.small-sidebar]:w-[4.375rem] group-[.small-sidebar]:overflow-y-hidden max-[31.25rem]:group-[.small-sidebar]:hidden">
+<?php
+$activeClass = 'bg-blue-500/10 text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.1)] border border-blue-500/20';
+$inactiveClass = 'text-neutral-400 hover:text-white hover:bg-neutral-800/60 border border-transparent transition-all duration-200';
+?>
 
-  <div class="shortcut-links">
-    <button id="home-btn"
-      class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.526rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-      <img src="./assets/images/icons/home-icon.svg"
-        class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-        data-hover="./assets/images/icons/home-fill-icon.svg">
-      <p
-        class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-        Home</p>
-    </button>
-    <button id="trending-btn"
-      class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-      <img src="./assets/images/icons/trending-icon.svg"
-        class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-        data-hover="./assets/images/icons/trending-fill-icon.svg">
-      <p
-        class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-        Trending</p>
-    </button>
-    <hr
-      class="sidebar-hr my-[0.3125rem] ml-[1%] h-[0.0625rem] w-[99%] border-0 bg-neutral-700 transition-width duration-300 ease-in-out group-[.small-sidebar]:w-full max-[56.25rem]:w-[99%]">
-  </div>
+<aside class="w-64 bg-neutral-900/95 border-r border-neutral-800 flex flex-col h-screen">
 
-  <div class="shortcut-links">
-    <button id="watched-btn"
-      class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-      <img src="./assets/images/icons/watched-icon.svg"
-        class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-        data-hover="./assets/images/icons/watched-fill-icon.svg">
-      <p
-        class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-        Watched</p>
-    </button>
-    <button id="favourites-btn"
-      class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-      <img src="./assets/images/icons/favourites-icon.svg"
-        class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-        data-hover="./assets/images/icons/favourites-fill-icon.svg">
-      <p
-        class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-        Favourites</p>
-    </button>
-    <button id="followings-btn"
-      class="icon-btn categories-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-      <img src="./assets/images/icons/followings-icon.svg"
-        class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-        data-hover="./assets/images/icons/followings-fill-icon.svg">
-      <p
-        class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-        Followings</p>
-      <div
-        class="right-side absolute right-0 mr-[0.375rem] flex items-center bg-transparent ml-auto group-[.small-sidebar]:hidden">
-        <div class="divider mx-[0.625rem] h-[1.3rem] w-[0.0625rem] bg-neutral-700"></div>
-        <img src="./assets/images/icons/arrow-down.svg" class="arrow-icon h-[1.3rem] w-auto">
-      </div>
-    </button>
-    <div class="dropdown hidden flex-col">
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 active:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/users/apple.jpg"
-          class="icon block h-[1.5rem] w-[1.5rem] rounded-full object-cover max-[56.25rem]:h-[1.3rem] max-[56.25rem]:w-[1.3rem]">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          @apple</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 active:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/users/cumatozz.jpg"
-          class="icon block h-[1.5rem] w-[1.5rem] rounded-full object-cover max-[56.25rem]:h-[1.3rem] max-[56.25rem]:w-[1.3rem]">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          @cumatozz</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 active:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/users/johnny-sins.jpg"
-          class="icon block h-[1.5rem] w-[1.5rem] rounded-full object-cover max-[56.25rem]:h-[1.3rem] max-[56.25rem]:w-[1.3rem]">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          @johnny_sins</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 active:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/users/sweetie-fox.jpg"
-          class="icon block h-[1.5rem] w-[1.5rem] rounded-full object-cover max-[56.25rem]:h-[1.3rem] max-[56.25rem]:w-[1.3rem]">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          @sweetie_fox</p>
-      </button>
-    </div>
-    <hr
-      class="sidebar-hr my-[0.3125rem] ml-[1%] h-[0.0625rem] w-[99%] border-0 bg-neutral-700 transition-width duration-300 ease-in-out group-[.small-sidebar]:w-full max-[56.25rem]:w-[99%]">
-  </div>
+    <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto" id="sidebar-nav">
 
-  <div class="shortcut-links">
-    <button id="categories-btn"
-      class="icon-btn categories-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-      <img src="./assets/images/icons/categories-icon.svg"
-        class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-        data-hover="./assets/images/icons/categories-fill-icon.svg" alt="Categories icon">
-      <p
-        class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-        Categories</p>
-      <div
-        class="right-side absolute right-0 mr-[0.375rem] flex items-center bg-transparent ml-auto group-[.small-sidebar]:hidden">
-        <div class="divider mx-[0.625rem] h-[1.3rem] w-[0.0625rem] bg-neutral-700"></div>
-        <img src="./assets/images/icons/arrow-down.svg" class="arrow-icon h-[1.3rem] w-auto">
-      </div>
-    </button>
-    <div class="dropdown hidden flex-col">
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/straight-gender-icon.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/straight-gender-fill-icon.svg" alt="Male icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Straight</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/gay-gender-icon.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/gay-gender-fill-icon.svg" alt="Male icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Gay</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/trans-gender-icon.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/trans-gender-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Trans</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/lesbian-gender-icon.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/lesbian-gender-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Lesbian</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/bisexual-gender-icon.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/bisexual-gender-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Bisexual</p>
-      </button>
-    </div>
-    <button id="fan-picks-btn"
-      class="icon-btn categories-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-      <img src="./assets/images/icons/fan-pick's-icon.svg"
-        class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-        data-hover="./assets/images/icons/fan-pick's-fill-icon.svg" alt="Fan Pick's icon">
-      <p
-        class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-        Fan Picks’</p>
-      <div
-        class="right-side absolute right-0 mr-[0.375rem] flex items-center bg-transparent ml-auto group-[.small-sidebar]:hidden">
-        <div class="divider mx-[0.625rem] h-[1.3rem] w-[0.0625rem] bg-neutral-700"></div>
-        <img src="./assets/images/icons/arrow-down.svg" class="arrow-icon h-[1.3rem] w-auto">
-      </div>
-    </button>
-    <div class="dropdown fan-picks-dropdown hidden flex-col group-[.small-sidebar]:!hidden">
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Male icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Teen (18+)</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          MILF</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Male icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Anal</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Hardcore BDSM</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Threesome</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Hentai</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          JAV</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Russian</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Korean</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Chinese</p>
-      </button>
-      <button
-        class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-        <img src="./assets/images/icons/fan-pick's-sub-con.svg"
-          class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-          data-hover="./assets/images/icons/fan-pick's-sub-fill-icon.svg" alt="Female icon">
-        <p
-          class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-          Indian</p>
-      </button>
-    </div>
-    <hr
-      class="sidebar-hr my-[0.3125rem] ml-[1%] h-[0.0625rem] w-[99%] border-0 bg-neutral-700 transition-width duration-300 ease-in-out group-[.small-sidebar]:w-full max-[56.25rem]:w-[99%]">
-  </div>
+        <?php if (!$is_admin): ?>
 
-  <div class="shortcut-links">
-    <p
-      class="sidebar-title my-1 ml-[0.625rem] whitespace-nowrap text-gray-200 text-base max-[56.25rem]:text-sm group-[.small-sidebar]:hidden">
-      More from <?php echo htmlspecialchars(!empty($_ENV['DOMAIN']) ? $_ENV['DOMAIN'] : 'UNKNOWN DOMAIN'); ?></p>
-    <button id="the-originals-btn"
-      class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-      <img src="./assets/images/icons/the-st-originals-icon.svg"
-        class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-        data-hover="./assets/images/icons/the-st-originals-fill-icon.svg">
-      <p
-        class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-        The ST Originals</p>
-    </button>
-    <button id="trust-support-btn"
-      class="icon-btn relative flex w-full cursor-pointer items-center justify-start gap-[0.9375rem] border-none bg-transparent py-[0.525rem] pr-[0.25rem] pl-[0.75rem] text-base font-light text-gray-200 no-underline hover:rounded-[0.625rem] hover:bg-neutral-900 [&.active]:rounded-[0.625rem] [&.active]:bg-neutral-900 group-[.small-sidebar]:w-full group-[.small-sidebar]:justify-center group-[.small-sidebar]:p-[0.75rem] max-[56.25rem]: max-[56.25rem]:text-sm">
-      <img src="./assets/images/icons/trust-icon.svg"
-        class="icon block h-[1.3rem] w-auto bg-transparent max-[56.25rem]:h-[1.125rem]"
-        data-hover="./assets/images/icons/trust-fill-icon.svg">
-      <p
-        class="label m-0 block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap bg-transparent group-[.small-sidebar]:hidden">
-        Trust & Support</p>
-    </button>
-  </div>
-</div>
+            <a href="?page=overview"
+                class="group flex items-center px-4 py-3 text-sm font-medium rounded-xl <?php echo $page === 'overview' ? $activeClass : $inactiveClass; ?>">
+                <svg class="w-5 h-5 mr-3 <?php echo $page === 'overview' ? 'text-blue-400' : 'text-neutral-500 group-hover:text-white'; ?> transition-colors"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+                Overview
+            </a>
+
+            <a href="?page=reports"
+                class="group flex items-center px-4 py-3 text-sm font-medium rounded-xl <?php echo $page === 'reports' ? $activeClass : $inactiveClass; ?>">
+                <svg class="w-5 h-5 mr-3 <?php echo $page === 'reports' ? 'text-blue-400' : 'text-neutral-500 group-hover:text-white'; ?> transition-colors"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Reports
+            </a>
+
+        <?php endif; ?>
+
+        <?php if ($is_admin): ?>
+
+            <a href="?page=status-board"
+                class="group flex items-center px-4 py-3 text-sm font-medium rounded-xl <?php echo $page === 'status-board' ? $activeClass : $inactiveClass; ?>">
+                <svg class="w-5 h-5 mr-3 <?php echo $page === 'status-board' ? 'text-blue-400' : 'text-neutral-500 group-hover:text-white'; ?> transition-colors"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                Status Board
+            </a>
+
+            <a href="?page=activity-logs"
+                class="group flex items-center px-4 py-3 text-sm font-medium rounded-xl <?php echo $page === 'activity-logs' ? $activeClass : $inactiveClass; ?>">
+                <svg class="w-5 h-5 mr-3 <?php echo $page === 'activity-logs' ? 'text-blue-400' : 'text-neutral-500 group-hover:text-white'; ?> transition-colors"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Activity Logs
+            </a>
+
+            <a href="?page=admin"
+                class="group flex items-center px-4 py-3 text-sm font-medium rounded-xl <?php echo $page === 'admin' ? $activeClass : $inactiveClass; ?>">
+                <svg class="w-5 h-5 mr-3 <?php echo $page === 'admin' ? 'text-blue-400' : 'text-neutral-500 group-hover:text-white'; ?> transition-colors"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                System Admin
+            </a>
+
+        <?php endif; ?>
+
+    </nav>
+</aside>

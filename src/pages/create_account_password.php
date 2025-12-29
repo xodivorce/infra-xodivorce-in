@@ -2,9 +2,9 @@
 session_start();
 
 // Initialize the application
-include './core/init.php';
-include './core/connection.php';
-include './core/languages/language_config.php';
+include './../core/init.php';
+include './../core/connection.php';
+include './../core/languages/language_config.php';
 
 // Suppress all PHP errors in production environment
 ini_set('display_errors', 0);
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($error) && isset($_POST['pass
         if ($stmt) {
             $stmt->bind_param("ssiss", $username, $email, $age, $gender, $password_hash);
             if ($stmt->execute()) {
-                include './core/auth/mail/create_account_config.php';
+                include './../core/auth/mail/create_account_config.php';
                 sendAccountCreationMail($email, $username);
 
                 unset($_SESSION['signup']);
@@ -99,15 +99,15 @@ if (empty($current_texts) && !empty($languages)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon & PWA -->
-    <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
-    <meta name="apple-mobile-web-app-title" content="SteamsTube" />
+    <link rel="icon" type="image/png" href="./../assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./../assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./../assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./../assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./../assets/favicon/site.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="<?php echo htmlspecialchars($_ENV['DOMAIN']); ?>" />
 
     <!-- TailwindCSS -->
-    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./../src/output.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,7 +118,7 @@ if (empty($current_texts) && !empty($languages)) {
     <title><?php echo htmlspecialchars(!empty($_ENV['DOMAIN']) ? $_ENV['DOMAIN'] : 'UNKNOWN DOMAIN'); ?></title>
 
     <!-- Debug Kit -->
-    <?php include 'assets/_debug_kit.php'; ?>
+    <?php include './../assets/_debug_kit.php'; ?>
 </head>
 
 <body class="bg-neutral-900 text-gray-200 flex items-center justify-center min-h-screen p-4">
@@ -128,7 +128,7 @@ if (empty($current_texts) && !empty($languages)) {
                 <!-- Left -->
                 <div class="p-8 md:p-12 flex flex-col self-start text-center md:text-left items-center md:items-start">
                     <div class="flex items-center mb-6">
-                        <img src="./assets/images/logos/xovae.svg" class="h-14 w-auto rounded-full bg-neutral-900"
+                        <img src="./../assets/images/logos/xovae.svg" class="h-14 w-auto rounded-full bg-neutral-900"
                             alt="xovae-logo" />
                     </div>
                     <h1 class="text-3xl font-normal text-gray-200 mb-2"><?php echo t('create_password_title'); ?></h1>
@@ -218,6 +218,6 @@ if (empty($current_texts) && !empty($languages)) {
 </body>
 
 <!-- Scripts -->
-<script src="assets/js/create_account_config.js"></script>
+<script src="./../assets/js/create_account_config.js"></script>
 
 </html>
