@@ -2,11 +2,10 @@
 session_start();
 
 // Initialize the application
-include './core/init.php';
-include './core/connection.php';
-include './core/languages/language_config.php';
-include './core/auth/mail/forgot_password_config.php';
-
+include './../core/init.php';
+include './../core/connection.php';
+include './../core/languages/language_config.php';
+include './../core/auth/mail/forgot_password_config.php';
 // Suppress all PHP errors in production environment
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
@@ -124,7 +123,7 @@ if (
     if (empty($password)) {
         $error = t('empty_password_error');
     } else {
-        $stmt = $conn->prepare("SELECT id, password_hash FROM users WHERE email = ? LIMIT 1");
+        $stmt = $conn->prepare(" SELECT id, password_hash, is_admin FROM users WHERE email = ? LIMIT 1 ");
 
         if (!$stmt) {
             $error = t('database_prepare_failed');
@@ -134,13 +133,14 @@ if (
             $stmt->store_result();
 
             if ($stmt->num_rows > 0) {
-                $stmt->bind_result($user_id, $hashed_password);
+                 $stmt->bind_result($user_id, $hashed_password, $is_admin);
                 $stmt->fetch();
 
                 if (password_verify($password, $hashed_password)) {
                     $_SESSION['user_id'] = $user_id;
                     $_SESSION['logged_in'] = true;
                     $_SESSION['user_email'] = $email;
+                    $_SESSION['is_admin'] = (bool) $is_admin;
 
                     // Fetch username for display
                     $user_stmt = $conn->prepare("SELECT username FROM users WHERE id = ? LIMIT 1");
@@ -152,7 +152,7 @@ if (
                     $user_stmt->close();
 
                     unset($_SESSION['signin_email']);
-                    header('Location: home.php');
+                    header('Location: ./../index.php');
                     exit;
                 } else {
                     $error = t('incorrect_password');
@@ -184,16 +184,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['language']) && in_arr
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon & PWA Assets -->
-    <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="./assets/favicon/site.webmanifest" />
-    <meta name="apple-mobile-web-app-title" content="SteamsTube" />
+    <link rel="icon" type="image/png" href="./../assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./../assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./../assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./../assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./../assets/favicon/site.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="<?php echo htmlspecialchars($_ENV['DOMAIN']); ?>" />
 
     <!-- Main Stylesheet (Tailwind CSS) -->
-    <link rel="stylesheet" href="./src/output.css">
-
+    <link rel="stylesheet" href="./../src/output.css">
     <!-- Google Fonts: Lexend Deca -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -203,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['language']) && in_arr
     <title><?php echo htmlspecialchars(!empty($_ENV['DOMAIN']) ? $_ENV['DOMAIN'] : 'UNKNOWN DOMAIN'); ?></title>
 
     <!-- Debug Kit: Optional outline borders (toggled via .env DEBUG_MODE) -->
-    <?php include 'assets/_debug_kit.php'; ?>
+    <?php include './../assets/_debug_kit.php'; ?>
 </head>
 
 <body class="bg-neutral-900 text-gray-200 flex items-center justify-center min-h-screen p-4">
@@ -214,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['language']) && in_arr
                 <!-- Left Side -->
                 <div class="p-8 md:p-12 flex flex-col self-start text-center md:text-left items-center md:items-start">
                     <div class="flex items-center mb-6">
-                        <img src="./assets/images/logos/xovae.svg" class="h-14 w-auto rounded-full bg-neutral-900"
+                        <img src="./../assets/images/logos/xovae.svg" class="h-14 w-auto rounded-full bg-neutral-900"
                             alt="xovae-logo" />
                     </div>
                     <h1 class="text-3xl font-normal text-gray-200 mb-2"><?php echo t('sign_in'); ?></h1>
@@ -312,6 +311,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['language']) && in_arr
 </body>
 
 <!-- Scripts -->
-<script src="assets/js/sign_in_config.js"></script>
+<script src="./../assets/js/sign_in_config.js"></script>
 
 </html>

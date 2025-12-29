@@ -16,15 +16,15 @@ include './core/init.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Favicon & PWA Assets -->
-  <link rel="icon" type="image/png" href="./assets/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="./assets/favicon/site.webmanifest" />
-  <meta name="apple-mobile-web-app-title" content="SteamsTube" />
+  <link rel="icon" type="image/png" href="./../assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="./../assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./../assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./../assets/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="./../assets/favicon/site.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="<?php echo htmlspecialchars($_ENV['DOMAIN']); ?>" />
 
   <!-- Main Stylesheet (Tailwind CSS) -->
-  <link rel="stylesheet" href="./src/output.css">
+  <link rel="stylesheet" href="./../src/output.css">
 
   <!-- Google Fonts: Lexend Deca -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,14 +35,14 @@ include './core/init.php';
   <title><?php echo htmlspecialchars(!empty($_ENV['DOMAIN']) ? $_ENV['DOMAIN'] : 'UNKNOWN DOMAIN'); ?></title>
 
   <!-- Debug Kit: Optional outline borders (toggled via .env DEBUG_MODE) -->
-  <?php include 'assets/_debug_kit.php'; ?>
+  <?php include './../assets/_debug_kit.php'; ?>
 </head>
 
 <body class="bg-neutral-900 text-gray-200 flex items-center justify-center min-h-screen p-4">
     <!-- Includes -->
-         <?php include './core/connection.php'; ?>
-         <?php include './core/languages/language_config.php';?>
-         <?php include './core/feedback/mail/feedback_config.php';?>
+         <?php include './../core/connection.php'; ?>
+         <?php include './../core/languages/language_config.php';?>
+         <?php include './../core/feedback/mail/feedback_config.php';?>
 
     <?php
     // Handles the language selection
@@ -79,7 +79,7 @@ include './core/init.php';
                 <!-- Left -->
                 <div class="p-8 md:p-12 flex flex-col self-start text-center md:text-left items-center md:items-start">
                     <div class="flex items-center mb-6">
-                        <img src="./assets/images/logos/xovae.svg" class="h-14 w-auto rounded-full bg-neutral-900" alt="xovae-logo" />
+                        <img src="./../assets/images/logos/xovae.svg" class="h-14 w-auto rounded-full bg-neutral-900" alt="xovae-logo" />
                     </div>
                     <h1 class="text-3xl font-normal text-gray-200 mb-2">Language Support</h1>
                     <p class="text-gray-400">
