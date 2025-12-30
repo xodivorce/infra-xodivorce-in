@@ -228,7 +228,7 @@ if (isset($_GET['code'])) {
                     </svg>
                     Need Help? Checkout Github Docs</a>
                 <span class="w-px h-3 bg-slate-800"></span>
-                <span href="https://github.com/xodivorce/infra-xodivorce-in"
+                <span
                     class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">v1.3.1</span>
             </div>
 
