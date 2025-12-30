@@ -219,7 +219,7 @@ if (isset($_GET['code'])) {
 
         <div class="mt-10 flex flex-col items-center">
             <div class="flex items-center gap-4 mb-3">
-                <a href="#"
+                <a href="https://github.com/xodivorce/infra-xodivorce-in/blob/main/FAQs/FAQ_EN.md" target="_blank"
                     class="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-all group">
                     <svg class="w-4 h-4 opacity-70 group-hover:opacity-100" fill="currentColor" viewBox="0 0 24 24">
                         <path fill-rule="evenodd"
@@ -228,8 +228,8 @@ if (isset($_GET['code'])) {
                     </svg>
                     Need Help? Checkout Github Docs</a>
                 <span class="w-px h-3 bg-slate-800"></span>
-                <span
-                    class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">v1.3.0</span>
+                <span href="https://github.com/xodivorce/infra-xodivorce-in"
+                    class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">v1.3.1</span>
             </div>
 
             <div class="flex items-center gap-2">
