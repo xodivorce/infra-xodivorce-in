@@ -37,7 +37,7 @@ error_reporting(0);
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Dynamic Page Title (from .env DOMAIN variable) -->
-    <title><?php echo htmlspecialchars($_ENV['DOMAIN'] . ' - Dashboard'); ?></title>
+    <title><?php echo htmlspecialchars($_ENV['APP_NAME'] . ' - Dashboard'); ?></title>
 
     <!-- Debug Kit: Optional outline borders (toggled via .env DEBUG_MODE) -->
     <?php include './assets/_debug_kit.php'; ?>

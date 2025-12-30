@@ -85,7 +85,7 @@ if (empty($current_texts) && !empty($languages)) {
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Dynamic Page Title (from .env DOMAIN variable) -->
-  <title><?php echo htmlspecialchars(!empty($_ENV['DOMAIN']) ? $_ENV['DOMAIN'] : 'UNKNOWN DOMAIN'); ?></title>
+    <title><?php echo htmlspecialchars($_ENV['APP_NAME'] . ' - Authentication'); ?></title>
 
   <!-- Debug Kit: Optional outline borders (toggled via .env DEBUG_MODE) -->
   <?php include './../assets/_debug_kit.php'; ?>
@@ -99,7 +99,7 @@ if (empty($current_texts) && !empty($languages)) {
         <!-- Left Side -->
         <div class="p-8 md:p-12 flex flex-col self-start text-center md:text-left items-center md:items-start">
           <div class="flex items-center mb-6">
-            <img src="./../assets/images/logos/xovae.svg" class="h-14 w-auto rounded-full bg-neutral-900"
+            <img src="./../assets/images/logos/xovae.png" class="h-14 w-auto rounded-full bg-neutral-900"
               alt="xovae-logo" />
           </div>
           <h1 class="text-3xl font-normal text-gray-200 mb-2"><?php echo t('sign_in'); ?></h1>

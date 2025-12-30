@@ -219,7 +219,7 @@ $result = $conn->query($sql);
 
                                     <td class="px-6 py-4 text-center">
                                         <?php if (!empty($row['image_path'])): ?>
-                                            <a href="<?php echo htmlspecialchars($row['image_path']); ?>" target="_blank"
+                                            <a href="./core/actions/submit_report.php?view_id=<?php echo htmlspecialchars($row['image_path']); ?>" target="_blank"
                                                 class="inline-block p-2 hover:bg-neutral-700 rounded-lg text-neutral-400 transition-colors">
                                                 <svg class="h-5 w-5 mx-auto text-violet-400" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
@@ -254,7 +254,7 @@ $result = $conn->query($sql);
 
                                     <td class="px-6 py-4 text-center">
                                         <button
-                                            onclick='askAboutReport(<?= (int)$row["id"] ?>, <?= json_encode($row["title"]) ?>, <?= json_encode($row["category"]) ?>)'
+                                            onclick='askAboutReport(<?= (int) $row["id"] ?>, <?= json_encode($row["title"]) ?>, <?= json_encode($row["category"]) ?>)'
                                             class="text-blue-400 hover:text-blue-300 text-xs font-medium flex items-center justify-center gap-1 transition-colors">
                                             Ask Gemini
                                         </button>
@@ -416,19 +416,21 @@ $result = $conn->query($sql);
                                     class="text-red-500">*</span></label>
                             <div class="flex bg-neutral-900 rounded-lg p-1 border border-neutral-700">
                                 <label class="flex-1 text-center cursor-pointer">
-                                    <input type="radio" name="priority" value="Low" class="sr-only peer">
+                                    <input type="radio" name="priority" value="Low" class="sr-only peer" checked>
                                     <span
-                                        class="block px-2 py-1.5 rounded-md text-sm text-neutral-400 peer-checked:bg-neutral-800 peer-checked:text-green-400 peer-checked:shadow-sm transition-all">Low</span>
+                                        class="block px-2 py-1.5 rounded-md text-sm text-neutral-200 peer-checked:bg-neutral-800 peer-checked:text-green-400 peer-checked:shadow-sm transition-all">Low</span>
                                 </label>
+
                                 <label class="flex-1 text-center cursor-pointer">
                                     <input type="radio" name="priority" value="Medium" class="sr-only peer">
                                     <span
-                                        class="block px-2 py-1.5 rounded-md text-sm text-neutral-400 peer-checked:bg-neutral-800 peer-checked:text-white peer-checked:shadow-sm transition-all">Med</span>
+                                        class="block px-2 py-1.5 rounded-md text-sm text-neutral-200 peer-checked:bg-neutral-800 peer-checked:text-orange-400 peer-checked:shadow-sm transition-all">Med</span>
                                 </label>
+
                                 <label class="flex-1 text-center cursor-pointer">
-                                    <input type="radio" name="priority" value="High" class="sr-only peer" checked>
+                                    <input type="radio" name="priority" value="High" class="sr-only peer">
                                     <span
-                                        class="block px-2 py-1.5 rounded-md text-sm text-neutral-400 peer-checked:bg-neutral-800 peer-checked:text-white peer-checked:shadow-sm transition-all">High</span>
+                                        class="block px-2 py-1.5 rounded-md text-sm text-neutral-200 peer-checked:bg-neutral-800 peer-checked:text-red-400 peer-checked:shadow-sm transition-all">High</span>
                                 </label>
                             </div>
                         </div>

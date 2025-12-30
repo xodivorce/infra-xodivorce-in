@@ -21,8 +21,8 @@ function sendAccountCreationMail($email, $username)
         $mail->setFrom($_ENV['MAIL_FROM'], $_ENV['MAIL_FROM_NAME']);
         $mail->addAddress($email, $username);
 
-        $domain = $_ENV['DOMAIN'] ?? 'UNKNOWN DOMAIN';
-        $company = $_ENV['COMPANY_NAME'] ?? 'UNKNOWN COMPANY';
+        $domain = $_ENV['DOMAIN'];
+        $appname = $_ENV['APP_NAME'];
         $projectStartYear = $_ENV['PROJECT_START_YEAR'] ?? 2025;
         $currentYear = (int) date('Y');
         $startYear = min((int) $projectStartYear, $currentYear);
@@ -88,8 +88,8 @@ function sendAccountCreationMail($email, $username)
                             </p>
 
                             <p style="font-size:16px;line-height:22px;color:#475569;margin:0 0 16px 0;font-family:'Lexend Deca', -apple-system;">
-                                <strong style="color:#0f172a;">{$domain}</strong> received a request to create an account
-                                with your data. We're pleased to confirm that your <strong style="color:#0f172a;">{$domain}</strong>
+                                <strong style="color:#0f172a;">{$appname}</strong> received a request to create an account
+                                with your data. We're pleased to confirm that your <strong style="color:#0f172a;">{$appname}</strong>
                                 account has been successfully created.
                             </p>
 
@@ -113,7 +113,7 @@ function sendAccountCreationMail($email, $username)
                                 Sincerely,
                             </p>
                             <p style="font-size:16px;line-height:18px;color:#0f172a;font-weight:600;margin:6px 0 0 0;font-family:'Lexend Deca', -apple-system;">
-                                {$domain} Support
+                                {$appname} Support
                             </p>
                         </td>
                     </tr>
@@ -132,7 +132,7 @@ function sendAccountCreationMail($email, $username)
                                         </div>
 
                                         <div style="font-size:12px;color:#475569;font-family:'Lexend Deca', -apple-system;">
-                                            &copy; {$yearText} {$domain}. All rights reserved.
+                                            &copy; {$yearText} {$appname}. All rights reserved.
                                         </div>
 
                                     </td>

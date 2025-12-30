@@ -13,7 +13,7 @@ $user_initial  = strtoupper($current_email[0]);
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
             </div>
-            <h2 class="text-xl font-bold text-white tracking-tight"> <?php echo htmlspecialchars($_ENV['DOMAIN']); ?> Dashboard</h2>
+            <h2 class="text-xl font-bold text-white tracking-tight"> <?php echo htmlspecialchars($_ENV['APP_NAME']); ?> Dashboard</h2>
         </div>
 
     </div>

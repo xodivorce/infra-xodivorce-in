@@ -64,3 +64,53 @@ find . -name ".DS_Store"
 ```
 
 </details>
+
+<details>
+  <summary>मैं अपलोड के लिए Google Drive OAuth कैसे कॉन्फ़िगर करूँ?</summary>
+
+- `https://console.cloud.google.com` पर एक नया Google Cloud प्रोजेक्ट बनाएँ और इसका नाम रखें: `infra-<yourdomain>`
+- Google Cloud Console में **Google Drive API** खोजें और इस प्रोजेक्ट के लिए इसे **Enable** करें।
+- ऊपर बाएँ ☰ मेनू से **APIs & Services > Credentials** पर जाएँ।
+- नीचे दी गई जानकारी भरें:
+
+```bash
+#App name:
+infra-<yourdomain>
+#User support email:
+आपका ईमेल पता
+#Audience:
+External चुनें
+#Contact Information:
+आपका ईमेल पता
+```
+
+- Finish पर क्लिक करें, फिर यह स्वीकार करें: `I agree to the Google API Services.` और आगे बढ़ें।
+
+- फिर से ऊपर बाएँ ☰ मेनू से APIs & Services > OAuth consent screen पर जाएँ और Create OAuth पर क्लिक करें।
+
+- नीचे दी गई जानकारी भरें:
+
+```bash
+#Application type:
+Web application
+#Name:
+infra-<yourdomain>
+#Authorized Redirect URI:
+https://<yourdomain>/pages/token/google_oauth_token.php
+```
+
+- Save पर क्लिक करें। जब “OAuth client created” का पॉपअप दिखाई दे, तो Client ID और Client Secret कॉपी करें और इन्हें अपनी `.env` फ़ाइल में `GOOGLE_CLIENT_ID` और `GOOGLE_CLIENT_SECRET` के रूप में सेव करें।
+
+- इसके बाद बाएँ साइडबार से Audience खोलें, नीचे स्क्रॉल करके Test users में जाएँ और उस Gmail अकाउंट को जोड़ें जिसे Google Drive स्टोरेज के लिए उपयोग किया जाएगा (लोकल/टेस्टिंग के लिए आवश्यक)। बदलाव सेव करें।
+
+> नोट: यदि आप ऐप को Production mode में भी स्विच करते हैं, तो यह सेटअप फिर भी काम करता रहेगा।
+- अब अपने ब्राउज़र में यह URL खोलें: `https://<yourdomain>/pages/token/google_oauth_token.php`।
+
+- यहाँ Step 2 में यह दिखना चाहिए कि credentials सफलतापूर्वक लोड हो गए हैं। Step 3 में उस Google Drive अकाउंट को authorize करें जिसे आपने पहले जोड़ा था।
+
+- सफल authorization के बाद एक refresh token दिखाई देगा। इस टोकन को कॉपी करें और अपनी `.env` फ़ाइल में इस तरह पेस्ट करें: `GOOGLE_REFRESH_TOKEN`।
+
+- अंत में, Google Drive में एक फ़ोल्डर बनाएँ (या कोई मौजूदा फ़ोल्डर चुनें)।
+- उस फ़ोल्डर के three-dot menu > Share > Share पर क्लिक करें और General access को इस पर सेट करें: `Anyone with the link`.
+
+</details>

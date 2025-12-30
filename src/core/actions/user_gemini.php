@@ -1,5 +1,4 @@
 <?php
-// core/actions/_user_gemini.php
 
 header('Content-Type: application/json');
 
@@ -7,14 +6,12 @@ $basePath = dirname(dirname(__DIR__));
 require_once $basePath . '/core/init.php';
 require_once $basePath . '/core/connection.php';
 
-// Auth Guard
 if (!isset($_SESSION['user_id'])) {
     http_response_code(401);
     echo json_encode(['error' => 'Please log in to use this feature.']);
     exit;
 }
 
-// Method Guard
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['error' => 'Method not allowed']);
@@ -41,18 +38,18 @@ if (empty($apiKey)) {
 
 $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' . $apiKey;
 
-// Prepare variables
-$domain = $_ENV['DOMAIN'] ?? 'Campus Dashboard';
-$helpEmail = $_ENV['HELPDESK_EMAIL'] ?? 'N/A';
-$helpPhone = $_ENV['HELPDESK_PHONE'] ?? 'N/A';
-$mgmtEmail = $_ENV['MANAGEMENT_EMAIL'] ?? 'N/A';
-$mgmtPhone = $_ENV['MANAGEMENT_PHONE'] ?? 'N/A';
-$healthEmail = $_ENV['HEALTH_EMAIL'] ?? 'N/A';
-$healthPhone = $_ENV['HEALTH_PHONE'] ?? 'N/A';
-$libEmail = $_ENV['LIBRARY_EMAIL'] ?? 'N/A';
-$libPhone = $_ENV['LIBRARY_PHONE'] ?? 'N/A';
-$secEmail = $_ENV['SECURITY_EMAIL'] ?? 'N/A';
-$secPhone = $_ENV['SECURITY_PHONE'] ?? 'N/A';
+$domain = $_ENV['DOMAIN'];
+$app_name = $_ENV['APP_NAME'];
+$helpEmail = $_ENV['HELPDESK_EMAIL'];
+$helpPhone = $_ENV['HELPDESK_PHONE'];
+$mgmtEmail = $_ENV['MANAGEMENT_EMAIL'];
+$mgmtPhone = $_ENV['MANAGEMENT_PHONE'];
+$healthEmail = $_ENV['HEALTH_EMAIL'];
+$healthPhone = $_ENV['HEALTH_PHONE'];
+$libEmail = $_ENV['LIBRARY_EMAIL'];
+$libPhone = $_ENV['LIBRARY_PHONE'];
+$secEmail = $_ENV['SECURITY_EMAIL'];
+$secPhone = $_ENV['SECURITY_PHONE'];
 
 $systemPrompt = <<<PROMPT
 You are the AI assistant for '{$domain}', a campus facility dashboard.
@@ -60,8 +57,8 @@ Your main goal is to help students with campus facility and infrastructure issue
 (WiFi & Network, Electrical, Water & Plumbing, HVAC, Furniture, Cleaning, Security, Road & Pathway Damage, Library, Medical, or Others).
 
 **IDENTITY:**
-1. **{$domain}** is the name of the college/university you serve.
-2. You are part of the **{$domain} Dashboard** system.
+1. **{$app_name}** is the name of the college/university you serve.
+2. You are part of the **{$app_name} Dashboard** system.
 
 ---
 
@@ -80,7 +77,7 @@ Your main goal is to help students with campus facility and infrastructure issue
    - Do NOT assist with the specific site.
    - Suggest checking connectivity.
    - If they believe it is a network problem, guide them to submit a **WiFi & Network Issue** using these steps:
-     1. Open your **{$domain} Dashboard**
+     1. Open your **{$app_name} Dashboard**
      2. Click **Reports**
      3. Click **Create Report**
      4. Select **WiFi & Network Issue** and submit

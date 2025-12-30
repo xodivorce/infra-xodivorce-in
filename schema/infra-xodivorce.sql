@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 29, 2025 at 09:47 PM
+-- Generation Time: Dec 30, 2025 at 05:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -130,23 +130,6 @@ CREATE TABLE `password_resets` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `password_resets`
---
-
-INSERT INTO `password_resets` (`id`, `user_id`, `email`, `token_hash`, `token_salt`, `expires_at`, `attempts`, `ip_address`, `user_agent`, `used`, `created_at`) VALUES
-(77, NULL, 'chutkasekari@gmail.com', '28ca5a1bb5683e2a2fad65e1650c80c55962710455243876578b4fa7cd446497', 'ebc01675ab917ffa0aba525097db21bb', '2025-12-25 13:37:31', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-25 18:04:31'),
-(78, NULL, 'chutkasekari@gmail.com', '70b759995118115ff5ea12a340705b4e65fc42a3210007e293bc5fdfaf3b82af', 'c346f11fea127900487ecb050e0f97c0', '2025-12-25 13:39:18', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-25 18:06:18'),
-(79, NULL, 'chutkasekari@gmail.com', '30d40f81acea6d52d241ebd3e4a634eaf775c0b9be4ffed6d31d9d2c2d568cdf', '92ce928e6056112bf5929c4d2cf539ed', '2025-12-25 13:39:58', 1, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-25 18:06:58'),
-(80, NULL, 'chutkasekari@gmail.com', '2e4d690b2c931843336e171e472064a4fc0e9eeb709bf8940a89856823278617', '87adce2403c4d95a30646d8f3818d0c0', '2025-12-25 13:44:47', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-25 18:11:47'),
-(81, NULL, 'chutkasekari@gmail.com', '08150475e5a01b56682158d7245448f6784732d4c02bcde71228a11dfdeea220', '86e1b3f761ac4a2c5f4f09b9a8a5a7b1', '2025-12-25 15:17:10', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 1, '2025-12-25 19:44:10'),
-(82, NULL, 'chutkasekari@gmail.com', 'aca6fa6001c57ef6415fb9ee6e2777072d829f8fee751172f3de75325dbaece6', '3b6d0bf0cc84fbd4f15d2c341bd3711b', '2025-12-25 15:29:45', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-25 19:56:45'),
-(83, NULL, 'chutkasekari@gmail.com', '687bb06e12c95dc4d960c45c4aed67f3bd3cf4126de49f6a2940043ceca1fc05', 'a8986c4b4ae94027076a6275696cfc50', '2025-12-25 15:30:22', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-25 19:57:22'),
-(84, NULL, 'chutkasekari@gmail.com', '7295280b048f2a55857391a401888be44c360c886992aa5a28ea3ac77aff00d7', 'ca070cc644d5188dfa48a23e01550dca', '2025-12-25 15:34:43', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 1, '2025-12-25 20:01:43'),
-(85, 63, 'prasidmandal79@gmail.com', '13bba949aa87cdce6d004a83a4e12d8fad3908493c676f9938f92fe18d495cb0', 'cb7282236e04acef46f4f94014b42894', '2025-12-29 07:10:57', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 1, '2025-12-29 11:37:57'),
-(86, 63, 'prasidmandal79@gmail.com', '5ffb85b8ad6b37321a5fa80c3e31f0c2d13865493b66e819a231409f76497706', 'c225eb18cd7a316efac7db40bfcc97c5', '2025-12-29 07:11:35', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-29 11:38:35'),
-(87, 63, 'prasidmandal79@gmail.com', 'cf0d32fb8d22c62dc077ba82960ec696c5c7b2cc2b37b3d7c7187219f9820b57', 'da591eaf4b7de7a6e065ce677df6ae0b', '2025-12-29 07:11:44', 0, 0x00000000000000000000000000000001, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', 0, '2025-12-29 11:38:44');
-
 -- --------------------------------------------------------
 
 --
@@ -166,22 +149,6 @@ CREATE TABLE `reports` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `reports`
---
-
-INSERT INTO `reports` (`id`, `user_id`, `title`, `category`, `priority`, `status`, `location`, `image_path`, `map_link`, `created_at`, `updated_at`) VALUES
-(4, 65, 'Wifi Outage at 3rd floor', 'WiFi &amp; Network Issue', 'Low', 'In Progress', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767009661.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 12:01:01', '2025-12-29 14:14:51'),
-(5, 65, 'hole in the main road', 'Road &amp; Pathway Damage', 'High', 'Open', 'Kolkata, India', './assets/images/uploads/reports/report_65_1767009895.png', 'Kolkata, India', '2025-12-29 12:04:55', '2025-12-29 14:27:21'),
-(6, 65, 'Other', 'Other', 'Medium', 'Resolved', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767017837.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:17:17', '2025-12-29 14:17:35'),
-(7, 65, 'AC not working', 'HVAC (AC/Heating)', 'High', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767018466.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:27:46', '2025-12-29 14:27:46'),
-(8, 65, 'harashments', 'Security &amp; Safety', 'High', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767018694.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:31:34', '2025-12-29 14:31:34'),
-(9, 65, 'junk here', 'Cleaning &amp; Janitorial', 'Low', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767018712.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:31:52', '2025-12-29 14:31:52'),
-(10, 65, 'broken bench', 'Furniture &amp; Fixtures', 'Medium', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767018742.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 14:32:22', '2025-12-29 14:32:22'),
-(11, 66, 'high polution', 'Cleaning &amp; Janitorial', 'Medium', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_66_1767022844.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 15:40:44', '2025-12-29 15:40:44'),
-(12, 65, 'pothhole in the play ground', 'Road &amp; Pathway Damage', 'Medium', 'Open', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', './assets/images/uploads/reports/report_65_1767026447.png', 'https://maps.app.goo.gl/ssjWsuPZNZuvsoaV6', '2025-12-29 16:40:47', '2025-12-29 16:40:47'),
-(13, 65, 'PornHub not workingg..', 'WiFi &amp; Network Issue', 'High', 'Open', 'https://www.google.com/maps?q=22.67843437253911,88.83882139925646', './assets/images/uploads/reports/report_65_1767027847.png', 'https://www.google.com/maps?q=22.67843437253911,88.83882139925646', '2025-12-29 17:04:07', '2025-12-29 17:04:07');
 
 -- --------------------------------------------------------
 
@@ -3341,17 +3308,7 @@ CREATE TABLE `users` (
   `password_hash` varchar(255) NOT NULL CHECK (char_length(`password_hash`) >= 60),
   `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `age`, `gender`, `password_hash`, `is_admin`, `created_at`) VALUES
-(63, '23/v/kpc-cst/36', 'prasidmandal79@gmail.com', 19, 'male', '$2y$10$VpgmeJOMAK72yYHNM.yXQ.F9ZnsQf8v9INGovs7fXjr9wh.euMGki', 1, '2025-12-28 20:20:52'),
-(65, '23/v/kpc-cst/35', 'dipalimandal257@gmail.com', 36, 'female', '$2y$10$CW4itEj.dMuFszYJ/jmAnu49qGr2rZUENEkLnWBzRk0CY9.dJSxNu', 0, '2025-12-29 06:18:30'),
-(66, '23/v/kpc-cst/37', 'chutkasekari@gmail.com', 19, 'male', '$2y$10$xmecyRB/A5pT6K8wSMPTv.6frNJ83cKKXBRJaVUaEg5zHpxauh1Nm', 0, '2025-12-29 06:59:50'),
-(67, '23/v/kpc-cst/38', 'chutkassekari@gmail.com', 19, 'male', '$2y$10$81WW9s6M680qXf66qo.BrOORqNHUX2GOXdLtK1S2RBpn8qhHu/t1y', 0, '2025-12-29 18:53:48');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -3443,7 +3400,7 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- Constraints for dumped tables

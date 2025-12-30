@@ -169,7 +169,6 @@ function validateFile(input) {
 
   const maxSize = 2 * 1024 * 1024; // 2MB
   if (file.size > maxSize) {
-    alert("File is too large! Please select an image under 2MB.");
     input.value = "";
     labelMain.innerText = "File too large!";
     labelSub.innerText = "Please select a file under 2MB";
@@ -201,7 +200,8 @@ function useCurrentLocation() {
     function (position) {
       const lat = position.coords.latitude;
       const lng = position.coords.longitude;
-      locInput.value = lat + ", " + lng;
+      const mapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
+      locInput.value = mapsLink;
     },
     function (error) {
       alert("Unable to retrieve your location.");
@@ -244,22 +244,16 @@ function parseMarkdown(text) {
     if (!line) return;
 
     if (/^(\d+\.|[A-Z]).*?:$/.test(line) || line.startsWith("###")) {
-
       let content = line.replace(/^###\s*/, "");
       formattedHTML += `<div class="text-white font-bold mt-4 mb-1 text-sm">${content}</div>`;
-    }
-
-    else if (/^[\-\*]\s+/.test(line)) {
-
+    } else if (/^[\-\*]\s+/.test(line)) {
       let content = line.replace(/^[\-\*]\s+/, "");
       formattedHTML += `
                 <div class="flex items-start ml-2 mb-1">
                     <span class="text-blue-400 mr-2 mt-1.5 leading-none" style="font-size: 6px;">●</span>
                     <span class="text-neutral-300 text-sm leading-snug">${content}</span>
                 </div>`;
-    }
-
-    else {
+    } else {
       formattedHTML += `<div class="text-neutral-300 mb-1 text-sm leading-snug">${line}</div>`;
     }
   });

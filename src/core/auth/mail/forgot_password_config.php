@@ -11,11 +11,10 @@ function sendPasswordResetMail(string $email, string $username, string $otp): bo
 
     try {
         $domain = $_ENV['DOMAIN'];
-        $company = $_ENV['COMPANY_NAME'];
+        $appname = $_ENV['APP_NAME'];
         $projectStartYear = $_ENV['PROJECT_START_YEAR'];
         $currentYear = (int) date('Y');
         $startYear = min((int) $projectStartYear, $currentYear);
-        $domainLower = strtolower($domain);
         $yearText = ($currentYear > $startYear)
             ? $startYear . '-' . substr((string) $currentYear, -2)
             : (string) $startYear;
@@ -32,7 +31,7 @@ function sendPasswordResetMail(string $email, string $username, string $otp): bo
         $mail->addAddress($email, $username);
 
         $mail->isHTML(true);
-        $mail->Subject = "Your {$domain} Account Password Reset OTP";
+        $mail->Subject = "Your {$appname} Account Password Reset OTP";
 
         $mail->Body = <<<HTML
 <!doctype html>
@@ -66,8 +65,8 @@ function sendPasswordResetMail(string $email, string $username, string $otp): bo
                             Hi <strong style="color:#0f172a;">{$username}</strong>,
                         </p>
                         <p style="font-size:16px;line-height:22px;color:#475569;margin:0 0 16px 0;">
-                            <strong style="color:#0f172a;">{$domain}</strong> received a request for resetting your password.
-                            We're pleased to confirm that your <strong style="color:#0f172a;">{$domain}</strong>
+                            <strong style="color:#0f172a;">{$appname}</strong> received a request for resetting your password.
+                            We're pleased to confirm that your <strong style="color:#0f172a;">{$appname}</strong>
                             account can be reset via OTP verification.
                         </p>
                         <div style="height:1px;background:#e6e9ef;margin:20px 0;"></div>
@@ -88,7 +87,7 @@ function sendPasswordResetMail(string $email, string $username, string $otp): bo
                             Sincerely,
                         </p>
                         <p style="font-size:16px;line-height:18px;color:#0f172a;font-weight:600;margin:6px 0 0 0;">
-                            {$domain} Support
+                            {$appname} Support
                         </p>
                     </td>
                 </tr>
@@ -103,7 +102,7 @@ function sendPasswordResetMail(string $email, string $username, string $otp): bo
                                         <a href="https://{$domain}.in/privacy-policy" style="color:inherit;text-decoration:none;">Privacy Policy</a>
                                     </div>
                                     <div style="font-size:12px;color:#475569;">
-                                        &copy; {$yearText} {$domain}. All rights reserved.
+                                        &copy; {$yearText} {$appname}. All rights reserved.
                                     </div>
                                 </td>
                             </tr>
@@ -131,7 +130,7 @@ function sendPasswordResetSuccessMail(string $email, string $username): bool
 
     try {
         $domain = $_ENV['DOMAIN'];
-        $company = $_ENV['COMPANY_NAME'];
+        $appname = $_ENV['APP_NAME'];
         $projectStartYear = $_ENV['PROJECT_START_YEAR'];
         $currentYear = (int) date('Y');
         $startYear = min((int) $projectStartYear, $currentYear);
@@ -185,8 +184,8 @@ function sendPasswordResetSuccessMail(string $email, string $username): bool
                             Hi <strong style="color:#0f172a;">{$username}</strong>,
                         </p>
                         <p style="font-size:16px;line-height:22px;color:#475569;margin:0 0 16px 0;">
-                            <strong style="color:#0f172a;">{$domain}</strong> received a request for resetting your password.
-                            We're pleased to confirm that your <strong style="color:#0f172a;">{$domain}</strong>
+                            <strong style="color:#0f172a;">{$appname}</strong> received a request for resetting your password.
+                            We're pleased to confirm that your <strong style="color:#0f172a;">{$appname}</strong>
                             account's password has been updated.
                         </p>
                         <p style="font-size:16px;line-height:22px;color:#475569;margin:0 0 16px 0;">
@@ -204,7 +203,7 @@ function sendPasswordResetSuccessMail(string $email, string $username): bool
                             Sincerely,
                         </p>
                         <p style="font-size:16px;line-height:18px;color:#0f172a;font-weight:600;margin:6px 0 0 0;">
-                            {$domain} Support
+                            {$appname} Support
                         </p>
                     </td>
                 </tr>
@@ -219,7 +218,7 @@ function sendPasswordResetSuccessMail(string $email, string $username): bool
                                         <a href="https://{$domain}.in/privacy-policy" style="color:inherit;text-decoration:none;">Privacy Policy</a>
                                     </div>
                                     <div style="font-size:12px;color:#475569;">
-                                        &copy; {$yearText} {$domain}. All rights reserved.
+                                        &copy; {$yearText} {$appname}. All rights reserved.
                                     </div>
                                 </td>
                             </tr>

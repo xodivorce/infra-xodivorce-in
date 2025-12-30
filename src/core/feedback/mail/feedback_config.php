@@ -24,8 +24,8 @@ function sendFeedbackMail(string $lang, string $feedback, string $userEmail = ''
             $mail->addReplyTo($userEmail);
         }
 
-        $domain = $_ENV['DOMAIN'] ?? 'UNKNOWN DOMAIN';
-        $company = $_ENV['COMPANY_NAME'] ?? 'UNKNOWN COMPANY';
+        $domain = $_ENV['DOMAIN'];
+        $appname = $_ENV['APP_NAME'];
 
         $mail->CharSet = 'UTF-8';
         $mail->isHTML(true);
@@ -101,9 +101,9 @@ $mail->Body = <<<HTML
 
                             <p
                                 style="font-size:16px;line-height:22px;color:#475569;margin:0 0 16px 0;font-family:'Lexend Deca', -apple-system, BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;">
-                                <strong style="color:#0f172a;">{$domain}</strong> received a request regarding fix the platform
+                                <strong style="color:#0f172a;">{$appname}</strong> received a request regarding fix the platform
                                 language.
-                                We're pleased to confirm that your <strong style="color:#0f172a;">{$domain}</strong>
+                                We're pleased to confirm that your <strong style="color:#0f172a;">{$appname}</strong>
                                 platform has received a greeting or feedback that have been successfully received.
                             </p>
 
@@ -134,7 +134,7 @@ $mail->Body = <<<HTML
                                 Sincerely,</p>
                             <p
                                 style="font-size:16px;line-height:18px;color:#0f172a;font-weight:600;margin:6px 0 0 0;font-family:'Lexend Deca', -apple-system, BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;">
-                                {$domain} Support</p>
+                                {$appname} Support</p>
                         </td>
                     </tr>
 
@@ -157,7 +157,7 @@ $mail->Body = <<<HTML
                                         </div>
 
                                         <div style="font-size:12px;color:#475569;">
-                                            &copy; {$yearText} {$domain}. All rights reserved.
+                                            &copy; {$yearText} {$appname}. All rights reserved.
                                         </div>
 
                                     </td>
@@ -194,8 +194,9 @@ function handleFeedbackForm(array $languages): void
         return;
 
     $lang = $_POST['language'] ?? ($_SESSION['language'] ?? ($languages[0] ?? ''));
-    $feedback = trim($_POST['feedback'] ?? '');
-    $userEmailInput = trim($_POST['email'] ?? '');
+    $appname = $_ENV['APP_NAME'];
+    $feedback = trim($_POST['feedback']);
+    $userEmailInput = trim($_POST['email']);
 
     // Validate email properly
     $userEmail = '';

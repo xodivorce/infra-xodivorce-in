@@ -12,11 +12,10 @@ function sendForgotEmail(string $email, string $username): bool
 
     try {
         $domain           = $_ENV['DOMAIN'];
-        $company          = $_ENV['COMPANY_NAME'];
+        $appname         = $_ENV['APP_NAME'];
         $projectStartYear = $_ENV['PROJECT_START_YEAR'];
         $currentYear      = (int) date('Y');
         $startYear        = min((int) $projectStartYear, $currentYear);
-        $domainLower      = strtolower($domain);
         $yearText         = ($currentYear > $startYear)
             ? "$startYear-" . substr((string) $currentYear, -2)
             : (string) $startYear;
@@ -33,7 +32,7 @@ function sendForgotEmail(string $email, string $username): bool
         $mail->addAddress($email, $username);
 
         $mail->isHTML(true);
-        $mail->Subject = "Your {$domain} Account Confirmation";
+        $mail->Subject = "Your {$appname} Account Confirmation";
 
         $mail->Body = <<<HTML
 <!doctype html>
@@ -72,8 +71,8 @@ function sendForgotEmail(string $email, string $username): bool
                                 Hi <strong style="color:#0f172a;">{$username}</strong>,
                             </p>
                             <p style="font-size:16px;line-height:22px;color:#475569;margin:0 0 16px 0;">
-                                <strong style="color:#0f172a;">{$domain}</strong> received a request to recover your email. We're pleased to confirm that your
-                                <strong style="color:#0f172a;">{$domain}</strong> account has been successfully reached.
+                                <strong style="color:#0f172a;">{$appname}</strong> received a request to recover your email. We're pleased to confirm that your
+                                <strong style="color:#0f172a;">{$appname}</strong> account has been successfully reached.
                             </p>
                             <div style="height:1px;background:#e6e9ef;margin:20px 0;"></div>
                             <p style="font-size:16px;line-height:22px;color:#475569;margin:0 0 16px 0;">
@@ -89,7 +88,7 @@ function sendForgotEmail(string $email, string $username): bool
                                 Sincerely,
                             </p>
                             <p style="font-size:16px;line-height:18px;color:#0f172a;font-weight:600;margin:6px 0 0 0;">
-                                {$domain} Support
+                                {$appname} Support
                             </p>
                         </td>
                     </tr>
@@ -104,7 +103,7 @@ function sendForgotEmail(string $email, string $username): bool
                                             <a href="https://{$domain}.in/privacy-policy" style="color:inherit;text-decoration:none;">Privacy Policy</a>
                                         </div>
                                         <div style="font-size:12px;color:#475569;">
-                                            &copy; {$yearText} {$domain}. All rights reserved.
+                                            &copy; {$yearText} {$appname}. All rights reserved.
                                         </div>
                                     </td>
                                 </tr>
