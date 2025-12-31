@@ -1,21 +1,19 @@
 <?php
 session_start();
+ob_start(); 
 
 require_once dirname(dirname(__DIR__)) . '/core/vendor/autoload.php';
 require_once dirname(__DIR__) . '/init.php'; 
-require_once dirname(__DIR__) . '/connection.php';
 
 $clientId     = $_ENV['GOOGLE_CLIENT_ID'];
 $clientSecret = $_ENV['GOOGLE_CLIENT_SECRET'];
 $refreshToken = $_ENV['GOOGLE_REFRESH_TOKEN'];
 $folderId     = $_ENV['GOOGLE_DRIVE_FOLDER_ID'];
 
-if (!$clientId || !$refreshToken) {
-    die("Server Error: Google Drive configuration missing.");
-}
-
 if (isset($_GET['view_id']) && !empty($_GET['view_id'])) {
     $fileId = $_GET['view_id'];
+
+    if (ob_get_length()) ob_clean();
 
     try {
         $client = new Google\Client();
@@ -24,14 +22,15 @@ if (isset($_GET['view_id']) && !empty($_GET['view_id'])) {
         $client->refreshToken($refreshToken);
         
         $service = new Google\Service\Drive($client);
-
         $response = $service->files->get($fileId, ['alt' => 'media']);
         $content = $response->getBody()->getContents();
 
         header("Content-Type: image/jpeg"); 
-        header("Cache-Control: public, max-age=86400"); // Cache for 24h
+        header("Content-Length: " . strlen($content));
+        header("Cache-Control: public, max-age=86400");
+        
         echo $content;
-        exit; 
+        exit;
 
     } catch (Exception $e) {
         http_response_code(404);
@@ -40,6 +39,9 @@ if (isset($_GET['view_id']) && !empty($_GET['view_id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+    require_once dirname(__DIR__) . '/connection.php';
+    require_once __DIR__ . '/mail/report_config.php'; 
 
     if (!isset($_SESSION['user_id'])) { die("Access denied."); }
 
@@ -65,14 +67,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $client->setClientId($clientId);
                 $client->setClientSecret($clientSecret);
                 $client->refreshToken($refreshToken);
-                
                 $service = new Google\Service\Drive($client);
-
+                
                 $fileMetadata = new Google\Service\Drive\DriveFile([
                     'name'    => 'Report_' . $user_id . '_' . time() . '.' . $fileExt,
                     'parents' => [$folderId] 
                 ]);
-
+                
                 $content = file_get_contents($fileTmpName);
                 $file = $service->files->create($fileMetadata, [
                     'data'       => $content,
@@ -80,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'uploadType' => 'multipart',
                     'fields'     => 'id'
                 ]);
-
                 $imagePath = $file->id;
 
             } catch (Exception $e) {
@@ -96,7 +96,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare($sql);
     if ($stmt) {
         $stmt->bind_param("issssss", $user_id, $title, $category, $priority, $location, $location, $imagePath);
-        $stmt->execute();
+        
+        if ($stmt->execute()) {
+            $report_id = $stmt->insert_id;
+            
+            $user_sql = "SELECT email, username FROM users WHERE id = ?";
+            $u_stmt = $conn->prepare($user_sql);
+            $u_stmt->bind_param("i", $user_id);
+            $u_stmt->execute();
+            $result = $u_stmt->get_result();
+            
+            if ($user = $result->fetch_assoc()) {
+                sendReportNotifications(
+                    $report_id,
+                    $title,
+                    $category,
+                    $priority,
+                    $location,
+                    $user['username'],
+                    $user['email'],
+                    $imagePath
+                );
+            }
+            $u_stmt->close();
+        }
         $stmt->close();
     }
     $conn->close();

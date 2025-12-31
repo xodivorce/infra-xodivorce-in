@@ -38,8 +38,8 @@ if ($stmt) {
 
 $email_initial = strtoupper(substr($email, 0, 1));
 
-$helpdesk_email = $_ENV['HELPDESK_EMAIL'];
-$helpdesk_phone = $_ENV['HELPDESK_PHONE'];
+$helpdesk_email = $_ENV['IT_HELPDESK_EMAIL'];
+$helpdesk_phone = $_ENV['IT_HELPDESK_PHONE'];
 
 $management_email = $_ENV['MANAGEMENT_EMAIL'];
 $management_phone = $_ENV['MANAGEMENT_PHONE'];
