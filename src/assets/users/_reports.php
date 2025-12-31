@@ -219,7 +219,8 @@ $result = $conn->query($sql);
 
                                     <td class="px-6 py-4 text-center">
                                         <?php if (!empty($row['image_path'])): ?>
-                                            <a href="./core/actions/submit_report.php?view_id=<?php echo htmlspecialchars($row['image_path']); ?>" target="_blank"
+                                            <a href="./core/actions/submit_report.php?view_id=<?php echo htmlspecialchars($row['image_path']); ?>"
+                                                target="_blank"
                                                 class="inline-block p-2 hover:bg-neutral-700 rounded-lg text-neutral-400 transition-colors">
                                                 <svg class="h-5 w-5 mx-auto text-violet-400" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
@@ -393,15 +394,17 @@ $result = $conn->query($sql);
                                 <select name="category" required
                                     class="w-full px-4 py-2.5 bg-neutral-900 border border-neutral-700 rounded-lg text-white appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all cursor-pointer">
                                     <option value="" disabled selected>Select a category...</option>
-                                    <option value="WiFi & Network Issue">WiFi & Network Issue</option>
+                                    <option value="Security & Safety Issue">Security & Safety Issue</option>
                                     <option value="Electrical Issue">Electrical Issue</option>
-                                    <option value="Water & Plumbing">Water & Plumbing</option>
-                                    <option value="HVAC (AC/Heating)">HVAC (AC/Heating)</option>
-                                    <option value="Furniture & Fixtures">Furniture & Fixtures</option>
-                                    <option value="Cleaning & Janitorial">Cleaning & Janitorial</option>
-                                    <option value="Security & Safety">Security & Safety</option>
-                                    <option value="Road & Pathway Damage">Road & Pathway Damage</option>
-                                    <option value="Other">Other</option>
+                                    <option value="Water & Plumbing Issue">Water & Plumbing Issue</option>
+                                    <option value="Road & Pathway Damage Issue">Road & Pathway Damage Issue</option>
+                                    <option value="HVAC (AC/Heating) Issue">HVAC (AC/Heating) Issue</option>
+                                    <option value="WiFi & Network Issue">WiFi & Network Issue</option>
+                                    <option value="Cleaning & Janitorial Issue">Cleaning & Janitorial Issue</option>
+                                    <option value="Furniture & Fixtures Issue">Furniture & Fixtures Issue</option>
+                                    <option value="Library & Study Issue">Library & Study Issue</option>
+                                    <option value="Lost & Stolen Issue">Lost & Stolen Issue</option>
+                                    <option value="Other Issue">Other Issue</option>
                                 </select>
                                 <svg class="absolute right-3 top-3 h-4 w-4 text-neutral-500 pointer-events-none"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">

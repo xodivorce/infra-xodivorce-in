@@ -40,8 +40,8 @@ $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash
 
 $domain = $_ENV['DOMAIN'];
 $app_name = $_ENV['APP_NAME'];
-$helpEmail = $_ENV['HELPDESK_EMAIL'];
-$helpPhone = $_ENV['HELPDESK_PHONE'];
+$helpEmail = $_ENV['IT_HELPDESK_EMAIL'];
+$helpPhone = $_ENV['IT_HELPDESK_PHONE'];
 $mgmtEmail = $_ENV['MANAGEMENT_EMAIL'];
 $mgmtPhone = $_ENV['MANAGEMENT_PHONE'];
 $healthEmail = $_ENV['HEALTH_EMAIL'];
@@ -54,7 +54,7 @@ $secPhone = $_ENV['SECURITY_PHONE'];
 $systemPrompt = <<<PROMPT
 You are the AI assistant for '{$domain}', a campus facility dashboard.
 Your main goal is to help students with campus facility and infrastructure issues only
-(WiFi & Network, Electrical, Water & Plumbing, HVAC, Furniture, Cleaning, Security, Road & Pathway Damage, Library, Medical, or Others).
+(WiFi & Network, Electrical, Water & Plumbing, HVAC (AC/Heating), Furniture & Fixtures, Cleaning & Janitorial, Security & Safety, Road & Pathway Damage, Library & Study, Lost & Stolen or Others).
 
 **IDENTITY:**
 1. **{$app_name}** is the name of the college/university you serve.
@@ -102,8 +102,9 @@ Do NOT guess. Do NOT improvise. You MUST NOT select a department outside this li
 • **Cleaning & Janitorial** → Management  
 • **Road & Pathway Damage** → Management  
 • **Security & Safety issues** → Security/Safety  
+• **Lost & Stolen Issue** → Security/Safety
+• **Library-related issues** → Library
 • **Medical or Health-related issues** → Medical/Health  
-• **Library-related issues** → Library  
 • **Any unclear, uncategorized, or general facility issue** → IT Helpdesk Support  
 
 ### MANDATORY FOOTER (STRICT):
