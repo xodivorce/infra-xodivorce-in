@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 30, 2025 at 05:41 PM
+-- Generation Time: Dec 31, 2025 at 09:27 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `infra-xodivorce`
+-- Database: `infra-xodivorce-in`
 --
 
 -- --------------------------------------------------------
@@ -142,7 +142,7 @@ CREATE TABLE `reports` (
   `title` varchar(255) NOT NULL,
   `category` varchar(100) NOT NULL,
   `priority` enum('Low','Medium','High') NOT NULL DEFAULT 'Low',
-  `status` enum('Open','In Progress','Resolved') NOT NULL DEFAULT 'Open',
+  `status` enum('Opened','In Progress','Resolved') NOT NULL DEFAULT 'Opened',
   `location` varchar(255) NOT NULL,
   `image_path` varchar(255) DEFAULT NULL,
   `map_link` text DEFAULT NULL,
@@ -3382,13 +3382,13 @@ ALTER TABLE `languages`
 -- AUTO_INCREMENT for table `password_resets`
 --
 ALTER TABLE `password_resets`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `translations`
@@ -3400,7 +3400,7 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- Constraints for dumped tables

@@ -25,7 +25,7 @@ if (count($whereClauses) > 0) {
     $whereSql = "WHERE " . implode(' AND ', $whereClauses);
 }
 
-$limit = 6;
+$limit = 4;
 $page = isset($_GET['p']) ? max(1, intval($_GET['p'])) : 1;
 $offset = ($page - 1) * $limit;
 
@@ -34,7 +34,7 @@ $count_result = $conn->query($count_sql);
 $total_rows = $count_result->fetch_assoc()['total'];
 $total_pages = ceil($total_rows / $limit);
 
-$sql = "SELECT r.*, u.username FROM reports r LEFT JOIN users u ON r.user_id = u.id $whereSql ORDER BY r.created_at DESC LIMIT $limit OFFSET $offset";
+$sql = "SELECT r.*, u.username FROM reports r LEFT JOIN users u ON r.user_id = u.id $whereSql ORDER BY r.id DESC LIMIT $limit OFFSET $offset";
 $result = $conn->query($sql);
 ?>
 
@@ -91,8 +91,8 @@ $result = $conn->query($sql);
                     ?>
                     <button type="button" onclick="setStatusAndSubmit('')"
                         class="<?php echo getBtnClass($current_status === ''); ?>">All Reports</button>
-                    <button type="button" onclick="setStatusAndSubmit('Open')"
-                        class="<?php echo getBtnClass($current_status === 'Open'); ?>">Open</button>
+                    <button type="button" onclick="setStatusAndSubmit('Opened')"
+                        class="<?php echo getBtnClass($current_status === 'Opened'); ?>">Opened</button>
                     <button type="button" onclick="setStatusAndSubmit('In Progress')"
                         class="<?php echo getBtnClass($current_status === 'In Progress'); ?>">In Progress</button>
                     <button type="button" onclick="setStatusAndSubmit('Resolved')"

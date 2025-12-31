@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require dirname(__DIR__, 2) . '/vendor/autoload.php';
 
-define('HELPDESK_EMAIL', $_ENV['IT_HELPDESK_EMAIL'] ?? '');
+define('IT_HELPDESK_EMAIL', $_ENV['IT_HELPDESK_EMAIL'] ?? '');
 define('MANAGEMENT_EMAIL', $_ENV['MANAGEMENT_EMAIL'] ?? '');
 define('HEALTH_EMAIL', $_ENV['HEALTH_EMAIL'] ?? '');
 define('LIBRARY_EMAIL', $_ENV['LIBRARY_EMAIL'] ?? '');
@@ -26,14 +26,14 @@ function getDepartmentEmail($category)
             return SECURITY_EMAIL;
 
         case 'WiFi & Network Issue':
-            return HELPDESK_EMAIL;
+            return IT_HELPDESK_EMAIL;
 
         case 'Library & Study Issue':
             return LIBRARY_EMAIL;
 
         case 'Other Issue':
         default:
-            return HELPDESK_EMAIL;
+            return IT_HELPDESK_EMAIL;
     }
 }
 
@@ -68,25 +68,6 @@ function sendReportNotifications($report_id, $title, $category, $priority, $loca
 {
 
     $dept_email = getDepartmentEmail($category);
-
-    $dept_name = 'IT Helpdesk';
-    switch ($category) {
-        case 'Electrical Issue':
-        case 'Water & Plumbing Issue':
-        case 'HVAC (AC/Heating) Issue':
-        case 'Furniture & Fixtures Issue':
-        case 'Road & Pathway Damage Issue':
-        case 'Cleaning & Janitorial Issue':
-            $dept_name = 'Estate Management';
-            break;
-        case 'Security & Safety Issue':
-        case 'Lost & Stolen Issue':
-            $dept_name = 'Security';
-            break;
-        case 'Library & Study Issue':
-            $dept_name = 'Library';
-            break;
-    }
 
     $domain = $_ENV['DOMAIN'] ?? $_SERVER['HTTP_HOST'];
     $appname = $_ENV['APP_NAME'];
@@ -139,7 +120,7 @@ function sendReportNotifications($report_id, $title, $category, $priority, $loca
                     <tr>
                         <td style="padding:18px 16px 8px 16px;background:#ffffff;font-family:'Lexend Deca', -apple-system;">
                             <p style="font-size:16px;line-height:22px;color:#475569;margin:0 0 16px 0;font-family:'Lexend Deca', -apple-system;">
-                                Hi <strong style="color:#0f172a;">{$dept_name}</strong> Team,
+                                Hi <strong style="color:#0f172a;">{$appname}</strong> Team,
                             </p>
                             <p style="font-size:16px;line-height:22px;color:#475569;margin:0 0 16px 0;font-family:'Lexend Deca', -apple-system;">
                               <strong style="color:#0f172a;">{$appname}</strong> has received a report submission and the auto-email had sent a "<strong style="color:#0f172a;">Your Report Form Submission Received</strong>" template to the reporter.
