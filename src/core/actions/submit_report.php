@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $sql = "INSERT INTO reports (user_id, title, category, priority, location, map_link, image_path, status) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, 'Open')";
+            VALUES (?, ?, ?, ?, ?, ?, ?, 'Opened')";
 
     $stmt = $conn->prepare($sql);
     if ($stmt) {

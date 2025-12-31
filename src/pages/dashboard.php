@@ -4,6 +4,9 @@ include './core/init.php';
 include './core/connection.php';
 include './core/router.php';
 
+$conn->query("SET time_zone = '+05:30'");
+date_default_timezone_set('Asia/Kolkata');
+
 // Suppress all PHP errors in production environment
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
