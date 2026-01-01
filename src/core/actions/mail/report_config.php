@@ -31,6 +31,9 @@ function getDepartmentEmail($category)
         case 'Library & Study Issue':
             return LIBRARY_EMAIL;
 
+        case 'Medical/Health Issue':
+            return HEALTH_EMAIL;
+
         case 'Other Issue':
         default:
             return IT_HELPDESK_EMAIL;

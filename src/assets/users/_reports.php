@@ -404,6 +404,7 @@ $result = $conn->query($sql);
                                     <option value="Furniture & Fixtures Issue">Furniture & Fixtures Issue</option>
                                     <option value="Library & Study Issue">Library & Study Issue</option>
                                     <option value="Lost & Stolen Issue">Lost & Stolen Issue</option>
+                                    <option value="Medical/Health Issue">Medical & Health Issue</option>
                                     <option value="Other Issue">Other Issue</option>
                                 </select>
                                 <svg class="absolute right-3 top-3 h-4 w-4 text-neutral-500 pointer-events-none"

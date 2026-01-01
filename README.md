@@ -6,7 +6,7 @@
 #### A real-time map-based reporting system for campus infrastructure issues, built to improve visibility, accountability, and resolution efficiency.
 
 [![status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat)](https://github.com/xodivorce/infra-xodivorce-in/)
-[![version](https://img.shields.io/badge/version-v1.3.2-yellow.svg?style=flat)](https://github.com/xodivorce/infra-xodivorce-in/)
+[![version](https://img.shields.io/badge/version-v1.3.3-yellow.svg?style=flat)](https://github.com/xodivorce/infra-xodivorce-in/)
 [![PRs](https://img.shields.io/badge/PRs-welcome-blue.svg?style=flat)](https://github.com/xodivorce/infra-xodivorce-in/)
 
 > **🥰 Like this project? Please consider giving it a Star (🌟) on GitHub to show us your appreciation. Thank you!**
