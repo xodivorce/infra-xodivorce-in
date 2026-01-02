@@ -33,6 +33,7 @@ error_reporting(0);
 
     <!-- Main Stylesheet (Tailwind CSS) -->
     <link rel="stylesheet" href="./src/output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts: Lexend Deca -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

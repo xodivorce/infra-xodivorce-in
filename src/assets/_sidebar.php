@@ -33,14 +33,14 @@ $inactiveClass = 'text-neutral-400 hover:text-white hover:bg-neutral-800/60 bord
 
         <?php if ($is_admin): ?>
 
-            <a href="?page=status-board"
-                class="group flex items-center px-4 py-3 text-sm font-medium rounded-xl <?php echo $page === 'status-board' ? $activeClass : $inactiveClass; ?>">
-                <svg class="w-5 h-5 mr-3 <?php echo $page === 'status-board' ? 'text-blue-400' : 'text-neutral-500 group-hover:text-white'; ?> transition-colors"
+            <a href="?page=admin_overview"
+                class="group flex items-center px-4 py-3 text-sm font-medium rounded-xl <?php echo $page === 'admin_overview' ? $activeClass : $inactiveClass; ?>">
+                <svg class="w-5 h-5 mr-3 <?php echo $page === 'overview' ? 'text-blue-400' : 'text-neutral-500 group-hover:text-white'; ?> transition-colors"
                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                 </svg>
-                Status Board
+                Admin Overview
             </a>
 
             <a href="?page=activity-logs"

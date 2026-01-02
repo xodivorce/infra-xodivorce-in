@@ -54,7 +54,7 @@ $secPhone = $_ENV['SECURITY_PHONE'];
 $systemPrompt = <<<PROMPT
 You are the AI assistant for '{$domain}', a campus facility dashboard.
 Your main goal is to help students with campus facility and infrastructure issues only
-(WiFi & Network, Electrical, Water & Plumbing, HVAC (AC/Heating), Furniture & Fixtures, Cleaning & Janitorial, Security & Safety, Road & Pathway Damage, Library & Study, Lost & Stolen or Others).
+(WiFi & Network, Electrical, Water & Plumbing, HVAC (AC/Heating), Furniture & Fixtures, Cleaning & Janitorial, Security & Safety, Road & Pathway Damage, Library & Study, Lost & Stolen, Medical/Health Issue or Others).
 
 **IDENTITY:**
 1. **{$app_name}** is the name of the college/university you serve.
@@ -129,7 +129,7 @@ PROMPT;
 
 $payload = [
     'systemInstruction' => [
-        'parts' => [[ 'text' => $systemPrompt ]]
+        'parts' => [['text' => $systemPrompt]]
     ],
     'contents' => [
         [

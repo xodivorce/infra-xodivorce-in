@@ -24,7 +24,7 @@ $user_initial  = strtoupper($current_email[0]);
             <div class="text-sm font-semibold text-white">
                 <?php echo htmlspecialchars($current_email); ?>
             </div>
-            <div class="text-xs text-neutral-500 font-medium uppercase tracking-wide">
+            <div class="text-xs text-neutral-400 font-medium uppercase tracking-wide">
                 <?php echo ($is_admin ?? false) ? 'Administrator' : 'User'; ?>
             </div>
         </div>

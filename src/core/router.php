@@ -23,11 +23,11 @@ $routes = [
         'file'  => './assets/users/_reports.php',
         'nav'   => true,
     ],
-    'status-board' => [
+    'admin_overview' => [
         'role'  => 'admin',
-        'label' => 'Status Board',
+        'label' => 'Admin Overview',
         'icon'  => 'activity',
-        'file'  => './assets/admin/_status_board.php',
+        'file'  => './assets/admin/_admin_overview.php',
         'nav'   => true,
     ],
     'activity-logs' => [
@@ -47,7 +47,7 @@ $routes = [
 ];
 
 if (!isset($routes[$page])) {
-    $page = $is_admin ? 'status-board' : 'overview';
+    $page = $is_admin ? 'admin_overview' : 'overview';
 }
 
 $routeRole = $routes[$page]['role'];
@@ -56,7 +56,7 @@ if (
     ($routeRole === 'admin' && !$is_admin) ||
     ($routeRole === 'user' && $is_admin)
 ) {
-    $page = $is_admin ? 'status-board' : 'overview';
+    $page = $is_admin ? 'admin_overview' : 'overview';
 }
 
 $current_route = $routes[$page];
