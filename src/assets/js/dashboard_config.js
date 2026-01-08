@@ -152,6 +152,24 @@ function askAboutReport(id, title, category) {
   }
 }
 
+function askAboutReportAdmin(id, title, category, priority, status) {
+  switchTab("gemini");
+  const inputField = document.getElementById("gemini-prompt");
+
+  if (inputField) {
+    inputField.value = `Regarding Report #${id} ("${title}") in category "${category}":
+  Provide a quick internal steps to resolve or debug this issue.  
+  Structure your answer with these exact headers (keep bullet points short and technical):
+    
+  1. Immediate Actions to take on the issue
+  2. Debug / Troubleshooting Steps`;
+
+    inputField.style.height = "auto";
+    inputField.style.height = inputField.scrollHeight + "px";
+    inputField.focus();
+  }
+}
+
 function validateFile(input) {
   const file = input.files[0];
   const labelMain = document.getElementById("file-label-main");

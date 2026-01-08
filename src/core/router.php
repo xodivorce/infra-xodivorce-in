@@ -30,18 +30,18 @@ $routes = [
         'file'  => './assets/admin/_admin_overview.php',
         'nav'   => true,
     ],
-    'activity-logs' => [
+    'system-logs' => [
         'role'  => 'admin',
-        'label' => 'Activity Logs',
+        'label' => 'System Logs',
         'icon'  => 'clock',
-        'file'  => './assets/admin/_activity_logs.php',
+        'file'  => './assets/admin/_system_logs.php',
         'nav'   => true,
     ],
-    'admin' => [
+    'admin-panel' => [
         'role'  => 'admin',
-        'label' => 'Admin',
+        'label' => 'Admin Panel',
         'icon'  => 'settings',
-        'file'  => './assets/admin/_admin.php',
+        'file'  => './assets/admin/_admin_panel.php',
         'nav'   => true,
     ],
 ];
