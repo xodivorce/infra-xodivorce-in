@@ -376,3 +376,37 @@ async function handleChatSubmit() {
     appendGeminiError("Unable to connect to Gemini. Please try again later.");
   }
 }
+
+async function refreshStatus() {
+    try {
+        const res = await fetch(window.location.pathname + '?ajax=1');
+        const data = await res.json();
+
+        document.getElementById('activeServices').textContent = data.stats.activeServices;
+        document.getElementById('maintenanceCount').textContent = data.stats.maintenance;
+        document.getElementById('outageCount').textContent = data.stats.outage;
+
+        const grid = document.getElementById('servicesGrid');
+        grid.innerHTML = '';
+
+        data.services.forEach(s => {
+            const color =
+                s.status === 'Outage' ? 'red' :
+                s.status === 'Maintenance' ? 'yellow' :
+                'green';
+
+            grid.innerHTML += `
+                <div class="bg-neutral-800 border border-neutral-700/50 rounded-xl p-4">
+                    <h3 class="font-semibold text-white text-sm">${s.name}</h3>
+                    <p class="text-xs text-neutral-400">${s.msg}</p>
+                    <span class="inline-block mt-2 w-2 h-2 rounded-full bg-${color}-500"></span>
+                </div>
+            `;
+        });
+
+    } catch (e) {
+        console.error('Status refresh failed', e);
+    }
+}
+
+setInterval(refreshStatus, 3000);

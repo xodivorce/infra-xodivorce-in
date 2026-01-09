@@ -1,4 +1,5 @@
 <?php
+
 $departments = [
     'WiFi & Network Issue',
     'Electrical Issue',
@@ -11,27 +12,33 @@ $departments = [
     'Library & Study Issue',
     'Lost & Stolen Issue',
     'Medical/Health Issue',
-    'Other Issues',
+    'Other Issue',
 ];
-
-
-$services = [];
 
 $sql = "
     SELECT
         REPLACE(category, '&amp;', '&') AS category,
-        SUM(TRIM(status) = 'Opened') AS opened_count,
-        SUM(TRIM(status) = 'In Progress') AS progress_count
+        SUM(status = 'Opened') AS opened_count,
+        SUM(status = 'In Progress') AS progress_count
     FROM reports
+    WHERE status IN ('Opened', 'In Progress')
     GROUP BY category
 ";
-
 
 $result = $conn->query($sql);
 
 $deptStats = [];
 while ($row = $result->fetch_assoc()) {
     $deptStats[$row['category']] = $row;
+}
+
+foreach ($departments as $dept) {
+    if (!isset($deptStats[$dept])) {
+        $deptStats[$dept] = [
+            'opened_count' => 0,
+            'progress_count' => 0
+        ];
+    }
 }
 
 function getStatusConfig($status) {
@@ -78,7 +85,7 @@ function getIconPath($name) {
     return 'M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z';
 }
 
-
+$services = [];
 $activeServices = 0;
 $maintenanceCount = 0;
 $highPriority = 0;
@@ -110,8 +117,6 @@ foreach ($departments as $dept) {
 
 $totalServices = count($services);
 
-$activeIncidents = $maintenanceCount + $highPriority;
-
 if ($highPriority > 0) {
     $sysData = [
         'status' => 'System Alert',
@@ -142,6 +147,20 @@ if ($highPriority > 0) {
         'hover'  => 'hover:border-green-500/50',
         'svg'    => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>'
     ];
+}
+
+if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
+    header('Content-Type: application/json');
+    echo json_encode([
+        'services' => $services,
+        'stats' => [
+            'activeServices' => $activeServices,
+            'maintenance' => $maintenanceCount,
+            'outage' => $highPriority,
+            'system' => $sysData
+        ]
+    ]);
+    exit;
 }
 ?>
 
@@ -197,7 +216,7 @@ if ($highPriority > 0) {
             <div>
                 <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Active System</p>
                 <div class="flex items-baseline gap-1 mt-1">
-                    <p class="text-2xl font-bold text-white"><?= $activeServices ?></p>
+                    <p class="text-2xl font-bold text-white" id="activeServices"><?= $activeServices ?></p>
                     <span class="text-sm text-neutral-400">/ <?= $totalServices ?></span>
                 </div>
                 <p class="text-xs text-neutral-400 mt-1"><?= ($totalServices - $activeServices) ?> services inactive</p>
@@ -210,7 +229,7 @@ if ($highPriority > 0) {
         <div class="bg-neutral-800 border border-neutral-700/50 rounded-xl p-5 flex items-center justify-between hover:border-yellow-500/50 transition-colors duration-300">
             <div>
                 <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">In Maintenance</p>
-                <p class="text-2xl font-bold text-white mt-1"><?= $maintenanceCount ?></p>
+                <p class="text-2xl font-bold text-white mt-1" id="maintenanceCount"><?= $maintenanceCount ?></p>
                 <p class="text-xs text-neutral-400 mt-1">Fixing the things</p>
             </div>
             <div class="w-12 h-12 rounded-lg bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center text-yellow-500">
@@ -221,7 +240,7 @@ if ($highPriority > 0) {
         <div class="bg-neutral-800 border border-neutral-700/50 rounded-xl p-5 flex items-center justify-between hover:border-red-500/50 transition-colors duration-300">
             <div>
                 <p class="text-xs font-semibold text-neutral-400 uppercase tracking-wider">Outage System</p>
-                <p class="text-2xl font-bold text-white mt-1"><?= $highPriority ?></p>
+                <p class="text-2xl font-bold text-white mt-1" id="outageCount"><?= $highPriority ?></p>
                 <p class="text-xs text-neutral-400 mt-1">Take an action now</p>
             </div>
             <div class="w-12 h-12 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500 <?php echo ($highPriority > 0) ? 'animate-pulse' : ''; ?>">
@@ -237,7 +256,7 @@ if ($highPriority > 0) {
             Services Status
         </h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <?php foreach ($services as $s): 
                 $config = getStatusConfig($s['status']);
                 $icon = getIconPath($s['name']);
