@@ -13,7 +13,7 @@ $recentSql = "SELECT r.*, u.username
               FROM reports r 
               JOIN users u ON r.user_id = u.id 
               ORDER BY r.updated_at DESC 
-              LIMIT 5";
+              LIMIT 6";
 
 $recentResult = $conn->query($recentSql);
 $recentActivity = $recentResult->fetch_all(MYSQLI_ASSOC);

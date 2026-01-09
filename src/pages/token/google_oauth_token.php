@@ -229,7 +229,7 @@ if (isset($_GET['code'])) {
                     Need Help? Checkout Github Docs</a>
                 <span class="w-px h-3 bg-slate-800"></span>
                 <span
-                    class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">v1.3.3</span>
+                    class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">v1.3.5</span>
             </div>
 
             <div class="flex items-center gap-2">
