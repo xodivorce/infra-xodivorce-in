@@ -71,7 +71,9 @@ if ($result->num_rows > 0) {
                 </div>
                 <div class="w-12 h-12 bg-purple-900 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
                     </svg>
                 </div>
             </div>
@@ -86,7 +88,8 @@ if ($result->num_rows > 0) {
                 </div>
                 <div class="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
             </div>
@@ -101,7 +104,8 @@ if ($result->num_rows > 0) {
                 </div>
                 <div class="w-12 h-12 bg-red-900 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6 text-red-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
             </div>
@@ -112,7 +116,8 @@ if ($result->num_rows > 0) {
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-sm font-medium text-neutral-400">Issues Resolved</p>
-                    <p class="mt-2 text-3xl font-semibold text-green-400"><?php echo number_format($resolved_reports); ?></p>
+                    <p class="mt-2 text-3xl font-semibold text-green-400">
+                        <?php echo number_format($resolved_reports); ?></p>
                 </div>
                 <div class="w-12 h-12 bg-green-900 rounded-lg flex items-center justify-center">
                     <svg class="w-6 h-6 text-green-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,10 +133,12 @@ if ($result->num_rows > 0) {
 
         <div class="flex items-center justify-between">
             <div class="bg-neutral-900 p-1 rounded-xl border border-neutral-800 inline-flex">
-                <button onclick="switchTab('reports')" id="tab-btn-reports" class="px-4 py-2 text-sm font-medium rounded-lg bg-neutral-800 text-white shadow-sm border border-neutral-700 transition-all cursor-default flex items-center gap-2">
+                <button onclick="switchTab('reports')" id="tab-btn-reports"
+                    class="px-4 py-2 text-sm font-medium rounded-lg bg-neutral-800 text-white shadow-sm border border-neutral-700 transition-all cursor-default flex items-center gap-2">
                     Campus Reports
                 </button>
-                <button onclick="switchTab('gemini')" id="tab-btn-gemini" class="px-4 py-2 text-sm font-medium rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer flex items-center gap-2">
+                <button onclick="switchTab('gemini')" id="tab-btn-gemini"
+                    class="px-4 py-2 text-sm font-medium rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all cursor-pointer flex items-center gap-2">
                     <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z" />
                     </svg>
@@ -151,28 +158,40 @@ if ($result->num_rows > 0) {
             <div class="bg-neutral-800 rounded-xl border border-neutral-700 p-4 shadow-sm">
                 <div class="flex flex-col lg:flex-row gap-4 justify-between">
                     <div class="flex overflow-x-auto pb-2 lg:pb-0 gap-2 no-scrollbar" id="status-filters">
-                        <button onclick="setFilter('status', 'All')" id="filter-all" class="px-4 py-2 bg-blue-600/10 text-blue-400 border border-blue-600/20 text-sm font-medium rounded-lg whitespace-nowrap transition-all">All Reports</button>
-                        <button onclick="setFilter('status', 'Opened')" id="filter-opened" class="px-4 py-2 hover:bg-neutral-700 text-neutral-400 hover:text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap border border-transparent">Opened</button>
-                        <button onclick="setFilter('status', 'In Progress')" id="filter-progress" class="px-4 py-2 hover:bg-neutral-700 text-neutral-400 hover:text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap border border-transparent">In Progress</button>
-                        <button onclick="setFilter('status', 'Resolved')" id="filter-fixed" class="px-4 py-2 hover:bg-neutral-700 text-neutral-400 hover:text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap border border-transparent">Resolved</button>
+                        <button onclick="setFilter('status', 'All')" id="filter-all"
+                            class="px-4 py-2 bg-blue-600/10 text-blue-400 border border-blue-600/20 text-sm font-medium rounded-lg whitespace-nowrap transition-all">All
+                            Reports</button>
+                        <button onclick="setFilter('status', 'Opened')" id="filter-opened"
+                            class="px-4 py-2 hover:bg-neutral-700 text-neutral-400 hover:text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap border border-transparent">Opened</button>
+                        <button onclick="setFilter('status', 'In Progress')" id="filter-progress"
+                            class="px-4 py-2 hover:bg-neutral-700 text-neutral-400 hover:text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap border border-transparent">In
+                            Progress</button>
+                        <button onclick="setFilter('status', 'Resolved')" id="filter-fixed"
+                            class="px-4 py-2 hover:bg-neutral-700 text-neutral-400 hover:text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap border border-transparent">Resolved</button>
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-3">
                         <div class="relative min-w-[200px]">
-                            <select onchange="setFilter('date', this.value)" class="w-full appearance-none px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-sm text-neutral-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all cursor-pointer">
+                            <select onchange="setFilter('date', this.value)"
+                                class="w-full appearance-none px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-sm text-neutral-300 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all cursor-pointer">
                                 <option value="all">All time</option>
                                 <option value="7">Last 7 days</option>
                                 <option value="30">Last 30 days</option>
                             </select>
-                            <svg class="absolute right-3 top-2.5 h-4 w-4 text-neutral-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            <svg class="absolute right-3 top-2.5 h-4 w-4 text-neutral-500 pointer-events-none"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
                             </svg>
                         </div>
 
                         <div class="relative w-full sm:w-64">
-                            <input type="text" placeholder="Search..." onkeyup="setFilter('search', this.value)" class="w-full pl-10 pr-4 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-sm text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all">
-                            <svg class="absolute left-3 top-2.5 h-4 w-4 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            <input type="text" placeholder="Search..." onkeyup="setFilter('search', this.value)"
+                                class="w-full pl-10 pr-4 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-sm text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all">
+                            <svg class="absolute left-3 top-2.5 h-4 w-4 text-neutral-500" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
                     </div>
@@ -184,36 +203,58 @@ if ($result->num_rows > 0) {
                     <table class="w-full">
                         <thead class="bg-neutral-900/50 border-b border-neutral-700">
                             <tr>
-                                <th class="px-6 py-4 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider w-12">ID</th>
-                                <th class="px-6 py-4 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider w-1/4">Title</th>
-                                <th class="px-6 py-4 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider">Category</th>
-                                <th class="px-6 py-4 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider">Priority</th>
-                                <th class="px-6 py-4 text-center text-xs font-semibold text-neutral-400 uppercase tracking-wider">Image</th>
-                                <th class="px-6 py-4 text-center text-xs font-semibold text-neutral-400 uppercase tracking-wider">Location</th>
-                                <th class="px-6 py-4 text-center text-xs font-semibold text-neutral-400 uppercase tracking-wider w-32">Date</th>
-                                <th class="px-6 py-4 text-center text-xs font-semibold text-neutral-400 uppercase tracking-wider w-48">Actions</th>
+                                <th
+                                    class="px-6 py-4 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider w-12">
+                                    ID</th>
+                                <th
+                                    class="px-6 py-4 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider w-1/4">
+                                    Title</th>
+                                <th
+                                    class="px-6 py-4 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                                    Category</th>
+                                <th
+                                    class="px-6 py-4 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                                    Priority</th>
+                                <th
+                                    class="px-6 py-4 text-center text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                                    Image</th>
+                                <th
+                                    class="px-6 py-4 text-center text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                                    Location</th>
+                                <th
+                                    class="px-6 py-4 text-center text-xs font-semibold text-neutral-400 uppercase tracking-wider w-32">
+                                    Date</th>
+                                <th
+                                    class="px-6 py-4 text-center text-xs font-semibold text-neutral-400 uppercase tracking-wider w-48">
+                                    Actions</th>
                             </tr>
                         </thead>
                         <tbody id="reports-table-body" class="divide-y divide-neutral-700/50">
-                            </tbody>
+                        </tbody>
                     </table>
                 </div>
 
                 <div class="bg-neutral-900 border-t border-neutral-700 px-6 py-4 flex items-center justify-between">
                     <span class="text-sm text-neutral-400" id="pagination-info">Showing page 1 of 1</span>
                     <div class="flex gap-2">
-                        <button id="btn-prev" onclick="changePage(-1)" class="px-3 py-1 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded-lg text-sm text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Previous</button>
-                        <button id="btn-next" onclick="changePage(1)" class="px-3 py-1 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded-lg text-sm text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Next</button>
+                        <button id="btn-prev" onclick="changePage(-1)"
+                            class="px-3 py-1 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded-lg text-sm text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Previous</button>
+                        <button id="btn-next" onclick="changePage(1)"
+                            class="px-3 py-1 bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 rounded-lg text-sm text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed">Next</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="view-gemini" class="hidden h-[75vh] flex flex-col bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden relative shadow-2xl">
-            <div class="flex-none px-6 py-4 border-b border-neutral-700 bg-neutral-900/50 backdrop-blur flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-900/20">
+        <div id="view-gemini"
+            class="hidden h-[75vh] flex flex-col bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden relative shadow-2xl">
+            <div
+                class="flex-none px-6 py-4 border-b border-neutral-700 bg-neutral-900/50 backdrop-blur flex items-center gap-3">
+                <div
+                    class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-purple-900/20">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </div>
                 <div>
@@ -223,23 +264,30 @@ if ($result->num_rows > 0) {
             </div>
             <div class="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar bg-neutral-800" id="chat-container">
                 <div class="flex gap-4">
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex-shrink-0 flex items-center justify-center mt-1">
+                    <div
+                        class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex-shrink-0 flex items-center justify-center mt-1">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
                     <div class="space-y-1 max-w-[80%]">
                         <span class="text-xs font-bold text-purple-400 ml-1">Gemini</span>
-                        <div class="bg-neutral-700/50 border border-neutral-600 rounded-2xl rounded-tl-none px-5 py-3 text-neutral-200 text-sm leading-relaxed shadow-sm">
-                            Hello Admin. I can assist with prioritizing facility issues, drafting responses to students, and analyzing infrastructure trends.
+                        <div
+                            class="bg-neutral-700/50 border border-neutral-600 rounded-2xl rounded-tl-none px-5 py-3 text-neutral-200 text-sm leading-relaxed shadow-sm">
+                            Hello Admin. I can assist with prioritizing facility issues, drafting responses to students,
+                            and analyzing infrastructure trends.
                         </div>
                     </div>
                 </div>
             </div>
             <div class="flex-none p-4 bg-neutral-900 border-t border-neutral-700">
                 <div class="relative flex items-end gap-2 max-w-4xl mx-auto">
-                    <textarea id="gemini-prompt" rows="1" placeholder="Ask about specific reports..." class="w-full pl-5 pr-14 py-3.5 bg-neutral-800 border border-neutral-700 rounded-2xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all resize-none custom-scrollbar text-sm leading-relaxed" style="min-height: 52px; max-height: 150px;"></textarea>
-                    <button type="button" onclick="sendGeminiRequest()" id="send-btn" class="absolute right-2 bottom-2.5 p-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl transition-all shadow-lg shadow-purple-900/20">
+                    <textarea id="gemini-prompt" rows="1" placeholder="Ask about specific reports..."
+                        class="w-full pl-5 pr-14 py-3.5 bg-neutral-800 border border-neutral-700 rounded-2xl text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all resize-none custom-scrollbar text-sm leading-relaxed"
+                        style="min-height: 52px; max-height: 150px;"></textarea>
+                    <button type="button" onclick="sendGeminiRequest()" id="send-btn"
+                        class="absolute right-2 bottom-2.5 p-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl transition-all shadow-lg shadow-purple-900/20">
                         <svg class="w-5 h-5 transform -rotate-90" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                         </svg>
@@ -269,7 +317,7 @@ if ($result->num_rows > 0) {
         if (!text) return '';
 
         text = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-        
+
         let safeText = text
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
@@ -287,7 +335,7 @@ if ($result->num_rows > 0) {
 
         lines.forEach(line => {
             const trimLine = line.trim();
-            
+
             if (trimLine.startsWith('### ')) {
                 html += `<div class="text-white font-semibold mt-3 mb-1 text-sm">${line.replace('### ', '')}</div>`;
             }
@@ -370,10 +418,21 @@ if ($result->num_rows > 0) {
     }
 
     function askAboutReportAdmin(id, title, category, priority, status) {
-        switchTab('gemini');
-        const promptInput = document.getElementById('gemini-prompt');
-        promptInput.value = `Report ID: #${id}\nTitle: "${title}"\nCategory: ${category}\nPriority: ${priority}\nStatus: ${status}\n\nAnalyze this report and suggest internal admin actions:`;
-        promptInput.focus();
+        switchTab("gemini");
+        const inputField = document.getElementById("gemini-prompt");
+
+        if (inputField) {
+            inputField.value = `Regarding Report #${id} ("${title}") in category "${category}":
+  Provide a quick internal steps to resolve or debug this issue.  
+  Structure your answer with these exact headers (keep bullet points short and technical):
+    
+  1. Immediate Actions to take on the issue
+  2. Debug / Troubleshooting Steps`;
+
+            inputField.style.height = "auto";
+            inputField.style.height = inputField.scrollHeight + "px";
+            inputField.focus();
+        }
     }
 
     function renderReports() {
@@ -412,7 +471,7 @@ if ($result->num_rows > 0) {
                 const dateObj = new Date(row.date);
                 const dateStr = dateObj.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
                 let priorityColor = row.priority === 'High' ? 'text-red-400' : (row.priority === 'Medium' ? 'text-orange-400' : 'text-blue-400');
-                
+
                 let actionBtn = '';
                 if (row.status === 'Opened') {
                     actionBtn = `<button onclick="advanceStatus(${row.id}, '${row.status}')" class="group w-32 relative py-1.5 px-3 bg-yellow-600/10 hover:bg-yellow-600/20 text-yellow-500 border border-yellow-500/30 hover:border-yellow-500/50 rounded-lg text-xs font-semibold transition-all shadow-lg shadow-yellow-900/10 flex items-center justify-between mx-auto"><span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>In Progress</span><svg class="w-3 h-3 transform group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg></button>`;
@@ -473,7 +532,7 @@ if ($result->num_rows > 0) {
                 <div class="bg-blue-600 rounded-2xl rounded-tr-none px-5 py-3 text-white text-sm leading-relaxed shadow-md">${prompt.replace(/\n/g, '<br>')}</div>
             </div>
         </div>`;
-        
+
         input.value = '';
         input.disabled = true;
         sendBtn.disabled = true;
@@ -482,7 +541,7 @@ if ($result->num_rows > 0) {
         try {
             const response = await fetch('./core/actions/admin_gemini.php', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ prompt: prompt })
             });
             const data = await response.json();
@@ -502,8 +561,8 @@ if ($result->num_rows > 0) {
                 </div>
             </div>`;
         } catch (e) {
-             console.error(e);
-             chatContainer.innerHTML += `<div class="text-red-500 text-center text-xs mt-2">Connection Error: ${e.message}</div>`;
+            console.error(e);
+            chatContainer.innerHTML += `<div class="text-red-500 text-center text-xs mt-2">Connection Error: ${e.message}</div>`;
         }
 
         input.disabled = false;
